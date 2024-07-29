@@ -88,6 +88,7 @@ stack and are ready to take full advantage of some Polygon stack USPs.
   - [ ] The issue of EIP4844 (blob) support
   - [ ] Launching your own L2
   - [x] [Launching your own L2 with Presto](https://blog.jarrodwatts.com/build-your-own-layer-2-blockchain-using-polygon-cdk)
+  - [x] [Quick and dirty DAC integration with your chain](https://docs.polygon.technology/cdk/how-to/integrate-da/)
   - [ ] L2 + setting up a whitelisted DAC
   - [ ] L2 + setting up an open and incentive-driven DAC
   - [ ] Going bare metal
