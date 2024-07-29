@@ -156,13 +156,6 @@ If it runs and renders well here, it will render correctly on the Knowledge
 Layer. If there are any unfixed errors breaking the local build, it will
 probably break on import to the Knowledge Layer.
 
-## Style guide
+### Linting
 
-We are using the
-[Microsoft Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/).
-
-## Contact and raising issues
-
-- For technical and documentation problems, raise an issue on the
-  [devrel-docs repo](https://github.com/0xPolygon/devrel-docs/issues).
-- Join our [Discord](https://discord.gg/0xpolygondevs).
+There is a linting script at `./prettier.sh` which you can run if you have Prettier installed. The `.prettierrc` file is used to configure Prettier and should work with most modern IDEs and build processes.
