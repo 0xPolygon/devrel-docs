@@ -106,7 +106,7 @@ stack and are ready to take full advantage of some Polygon stack USPs.
 
 ---
 
-## The Community
+## Community
 
 Join our community in the [R&D Discord](https://discord.gg/0xpolygonrnd), or
 schedule a meet with us at
