@@ -80,8 +80,8 @@ stack and are ready to take full advantage of some Polygon stack USPs.
 
 - Plonky3
   - [ ] Into Plonky3
-  - [ ] How to choose your own configuration for Plonky3?
-  - [ ] Your first AIR Circuits and implementation, Fibonacci Example on Plonky3
+  - [ ] How to choose your own configuration for Plonky3
+  - [ ] Your first AIR circuits and implementation, Fibonacci Example on Plonky3
 - CDK
   - [ ] Kurtosis CDK
   - [ ] Validium vs Calldata Rollup
