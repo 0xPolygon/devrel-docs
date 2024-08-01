@@ -57,24 +57,24 @@ adding it.
 A section for those who passed the basics of dapp development on the Polygon
 stack and are ready to take full advantage of some Polygon stack USPs.
 
-- Miden Advanced
+- Miden advanced
   - [ ] Deep dive into Miden architecture
   - [ ] Advanced contract development techniques
   - [ ] Call logic across multiple notes
   - [ ] Developing multi-contract dapps
   - [ ] Using Miden for privacy-preserving applications
-  - Advanced App Development
-    - [ ] Let’s build a private-voting DAO Step by Step
+  - Advanced dApp development
+    - [ ] Let’s build a private-voting DAO step-by-step
     - [ ] Ensuring security and privacy: implications and tradeoffs
 - AggLayer
-  - [ ] Chaining cross-chain calls with BridgeAndCall
+  - [ ] Chaining cross-chain calls with `BridgeAndCall`
   - [ ] CCIP vs AggLayer for cross chain calls
   - [ ] Sequencing: centralization tradeoffs and future solutions
   - Gaming supercase
     - [ ] Simple game design
     - [ ] Simple marketplace on Polygon PoS
     - [ ] Characters on Polygon zkEVM
-    - [ ] Equipping game items across chains with BridgeAndCall
+    - [ ] Equipping game items across chains with `BridgeAndCall`
 
 ### The Deep Dive
 
