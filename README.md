@@ -1,4 +1,4 @@
-# Learn Platform
+# Learn platform
 
 In progress material for <https://docs.polygon.technology/innovation-design/>,
 to be rebranded as Learn. Content managed by the
