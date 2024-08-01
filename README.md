@@ -16,7 +16,7 @@ adding it.
 ### Getting your feet wet
 
 - General Concepts
-  - [ ] The Polygon Stack: Clarifying the Choice
+  - [ ] The Polygon stack: Clarifying the choice
   - [ ] EVM vs zkEVM
 - Agglayer
   - [ ] Intro into AggLayer
