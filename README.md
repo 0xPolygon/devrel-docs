@@ -76,7 +76,7 @@ stack and are ready to take full advantage of some Polygon stack USPs.
     - [ ] Characters on Polygon zkEVM
     - [ ] Equipping game items across chains with `BridgeAndCall`
 
-### The Deep Dive
+### Deep dive
 
 - Plonky3
   - [ ] Into Plonky3
