@@ -110,7 +110,7 @@ stack and are ready to take full advantage of some Polygon stack USPs.
 
 Join our community in the [R&D Discord](https://discord.gg/0xpolygonrnd), or
 schedule a meet with us at
-[Meet The Devrel](https://polygon.technology/community/meet-the-devrel).
+[Meet the Dev Rel](https://polygon.technology/community/meet-the-devrel).
 
 Additionally, we have a [YouTube channel](https://www.youtube.com/@0xPolygonTV)
 and a [Polygon blog](https://polygon.technology/blog).
