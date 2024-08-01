@@ -24,7 +24,7 @@ adding it.
   - [ ] A day in the life of an AggLayer tx
   - [ ] Block building in Agglayer
   - [ ] Network parameters and contract addresses
-  - [ ] Detailed Look at AggLayer L1 Contracts
+  - [ ] Detailed look at AggLayer L1 contracts
 - PoS
   - [ ] A Day in the Life of a Polygon PoS TX
   - [ ] Block building in Polygon PoS
