@@ -21,7 +21,7 @@ adding it.
 - Agglayer
   - [ ] Intro into AggLayer
   - [ ] Learn AggLayer: A comprehensive list of external resources
-  - [ ] A Day in the Life of an AggLayer TX
+  - [ ] A day in the life of an AggLayer tx
   - [ ] Block building in Agglayer
   - [ ] Network parameters and contract addresses
   - [ ] Detailed Look at AggLayer L1 Contracts
