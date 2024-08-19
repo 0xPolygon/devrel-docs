@@ -1,17 +1,18 @@
-# Welcome to MkDocs
+# Welcome to Polygon Learn
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+The Polygon Learn platform is a collection of resources for learning about
+Polygon's technology. The materials are maintained by the Polygon Devrel team,
+and serve to familiarize you with Polygon's technology and ecosystem - from
+theory and concepts to practical examples.
 
-## Commands
+Contribute to this knowledgebase by following instructions in the
+[README](https://github.com/0xPolygon/devrel-docs), or by clicking on
+Edit on any page in this documentation portal.
 
-- `mkdocs new [dir-name]` - Create a new project.
-- `mkdocs serve` - Start the live-reloading docs server.
-- `mkdocs build` - Build the documentation site.
-- `mkdocs -h` - Print help message and exit.
+Start by learning the basics about the key concepts of Polygon's technology:
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- [AggLayer](agglayer/overview.md)
+- Polygon PoS
+- Polygon zkEVM
+- Miden
+- Polygon CDK
