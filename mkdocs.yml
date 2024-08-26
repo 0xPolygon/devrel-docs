@@ -19,3 +19,5 @@ nav:
     - A Day in the Life of an AggLayer Transaction: agglayer/ditl.md
     - Pessimistic Proof: agglayer/pessimistic_proof.md
     - Unified Liquidity: agglayer/unified_liquidity.md
+  - Miden:
+    - Note Types: miden/note_types.md
