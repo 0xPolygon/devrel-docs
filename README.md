@@ -21,7 +21,9 @@ adding it.
   - [x] Overview
   - [x] Trust Levels Between AggLayer Chains
   - [ ] Learn AggLayer: A comprehensive list of external resources
-  - [ ] A day in the life of an AggLayer tx
+  - [x] A day in the life of an AggLayer tx
+  - [x] Pessimistic Proof
+  - [x] Unified Liquidity
   - [ ] Block building in Agglayer
   - [ ] Network parameters and contract addresses
   - [ ] Detailed look at AggLayer L1 contracts
@@ -44,6 +46,7 @@ adding it.
 - Miden Basic
   - [ ] Overview
   - [ ] A Day in the Life of a Miden TX
+  - [x] Note Types
   - [ ] Block building in Miden
   - [ ] Network parameters
   - [ ] Miden Use Cases
