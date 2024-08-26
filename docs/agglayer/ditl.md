@@ -112,8 +112,7 @@ An authenticator is a component which authenticates the block production of a
 chain. Each chain provides its own authenticator to the AggLayer, such that the
 AggLayer can run checks against it. If a block and the chain's Pessimistic Proof
 are authenticated with the Prover, the Aggregator will aggregate them into a
-single proof. This proof is then sent to the Settler, which will send it to the
-L1 for final settlement.
+single proof. This proof is then sent to the Settler (in this case a tool called Ethereman) which will send it to the L1 for final settlement.
 
 In the phase before settling but after verifying proofs, the state of the chains
 is still in the AggLayer. In [pragmatism](trust.md), this is the state that is
@@ -137,3 +136,4 @@ withdrawals to be submitted to the AggLayer as Pessimistic Proofs. This is done
 to secure the unified bridge from hack spillovers. Further, both chains will be
 generating a proof of their state transition to be validated by the
 _authenticator_ of each chain.
+
