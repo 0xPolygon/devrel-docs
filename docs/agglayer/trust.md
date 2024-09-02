@@ -3,16 +3,16 @@
 When joining the AggLayer, chains have different types of trust to choose
 between.
 
-1. Pessimistic
+1. Pessimistic (default)
 2. Pragmatic
 3. Positive
 
 First, let's briefly recap how chains "talk" via the AggLayer. Chains will
-generate proof of their current state, and their local exit trees proving
-outgoing balances. These proofs are sent into the "AggLayer mempool" - a place
-where the proofs coexist until proven and settled. They will then get verified
-by the AggLayer, and once aggregated and proven, the proof of these proofs being
-valid will be stored on the L1 (Ethereum).
+generate proof of their current state (local exit trees), and their local
+balance trees proving outgoing balances. These proofs are sent into the
+"AggLayer mempool" - a place where the proofs coexist until proven and settled.
+They will then get verified by the AggLayer, and once aggregated and proven, the
+proof of these proofs being valid will be stored on the L1 (Ethereum).
 
 If chain A needs the information of chain B (because, for example, Chain A is
 expecting a deposit from Chain B), it can choose between one of the above trust
@@ -23,6 +23,11 @@ chain A will wait for chain B's proof to be validated and settled on the L1
 before taking it as canon and acting on it. By being acknowledged by the L1,
 chain B is all but guaranteed to be valid and finalized in the eyes of the
 AggLayer.
+
+The pragmatic and positive views are up to the chain's authenticator - the
+entity which decides how a chain's state transition is validated in the eyes of
+the AggLayer. No matter the trust level chosen, the pessimistic proof is always
+generated and the settling on L1 happens for every chain regardless.
 
 In the Pragmatic view, Chain A can choose to react to Chain B's proof as soon as
 the AggLayer has verified its validity, but before the proof is aggregated and

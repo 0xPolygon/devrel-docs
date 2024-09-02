@@ -14,10 +14,15 @@ Through the Pessimistic Proof, the AggLayer makes three checks:
   to withdraw tokens they didn’t have; and
 - All of the chains together do all of the internal accounting together, correctly.
 
-Each chain connected to the AggLayer maintains a local exit tree, which tracks
-all withdrawals from that chain. Using the root of each chain’s local exit tree,
-the AggLayer can build a global view of all withdrawals from all chains on the
-unified bridge; this is called the “global exit tree.”
+Broadly speaking it is generated based on the previous local balance root, new
+local balance root previous local exit root, new local exit root, previous
+nullifier tree, new nullifier tree and all asset transfers txns in the current
+batch.
+
+Each chain connected to the AggLayer maintains a local balance tree, which
+tracks all withdrawals from that chain. Using the root of each chain’s local
+exit tree, the AggLayer can build a global view of all withdrawals from all
+chains on the unified bridge; this is called the “global exit tree.”
 
 Because the global exit tree is committed to the L1, the AggLayer must know that
 all local exit trees are valid, too, to ensure that the next global exit tree is

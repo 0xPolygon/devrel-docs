@@ -32,8 +32,8 @@ Zigil can cleverly calculate the best way to buy 10000 AggTokens with minimal
 slippage and arbitrage risk totals. Let's say that due to the LP setups in the
 DEXes on these chains, Zigil can buy 1000 AggTokens on AlistairChain, 1000 on
 Bobchain, and 8000 on Ethereum. Zigil will buy 10000 AggTokens in three
-transactions, one on each chain, but submitted at once to the AggLayer sequencer
-which will make sure the bundle is executed atomically.
+transactions, one on each chain, but submitted at once to the a sequencer that
+works with AggLayer which will make sure the bundle is executed atomically.
 
 In a step by step manner, the AggLayer sequencer will:
 
@@ -51,12 +51,15 @@ Now what happens when Alistair decides to send 9000 AggTokens to a vault on BobC
 2. Zigil will calculate the best way to send these tokens. Since the vault is on
    BobChain, Zigil will send 8000 from Ethereum to BobChain, and then 9000 on
    BobChain to a BobChain vault.
-3. Once the chain proofs are all verified and validated, AggLayer will make sure
-   the bundled transactions are executed in the correct order, again atomically.
-   First, the 8000 AggTokens on Ethereum will be burnt, and then minted on
-   BobChain. The minted tokens will then be sent to Bob. Then the whole balance
-   of 9000 tokens will be sent to the BobChain vault. These are 3 transactions
-   on 2 chains, all bundled together and executed and proven one by one.
+3. Once the chain proofs are all verified and validated, Zigil (or another
+   entity, like the target chain or the dapp which monitors the cross chain
+   transactions to pick up the claiming process on the target chain) will make
+   sure the bundled transactions are executed in the correct order, again
+   atomically. First, the 8000 AggTokens on Ethereum will be burnt, and then
+   minted on BobChain. The minted tokens will then be sent to Bob. Then the
+   whole balance of 9000 tokens will be sent to the BobChain vault. These are 3
+   transactions on 2 chains, all bundled together and executed and proven one by
+   one.
 4. First, the proof that an 8k burn on Ethereum will be successful is generated.
    Then, the proof that the 8k mint on BobChain will succeed is generated, and
    depends on the previous proof. Finally, the proof of the previous two

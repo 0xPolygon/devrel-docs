@@ -37,16 +37,20 @@ will be traveling through several layers. Let's follow it along!
 Once Alistair attempts to send 50 USDT, Zigil will first check if Alistair
 has enough balance to send 50 USDT.
 
-Then, Zigil will read the withdrawal state of Polygon PoS, making sure that the
-balance is available. This is done through the Local Exit Tree.
+## Local Exit and Balance Trees
 
-## Local Exit Tree
+Even if Alistair has enough balance, to perform a valid cross chain transfer,
+Zigil must make sure that the Local Balance Tree of Polygon PoS proves that the
+chain has at least 50 USDT available for withdrawal, i.e. that Polygon PoS will
+not be withdrawing more funds than have been deposited into it.
 
-All AggLayer chains will periodically automatically generate a Local Exit Tree
-of withdrawals. These are submitted to the AggLayer to generate proof that the
-Tree of a chain is correct. This Tree can also be sequenced by anyone and
-submitted to the AggLayer for a reward if the central sequencer does not do it
-in a specific time period.
+All AggLayer chains will periodically automatically generate a Local Balance
+Tree of withdrawals and a Local Exit Tree for their state. These are submitted
+to the AggLayer which authenticates them using an _authenticator_ provided by
+each chain, to generate proof that the Tree of a chain is correct.
+
+More info about trees can be found in the
+[Local Exit and Balance Trees](lbt_vs_let.md) page.
 
 Zigil uses this proof's validity to make sure that Polygon PoS has at least 50
 USDT available for _burning_ (withdrawal).
@@ -85,9 +89,11 @@ chain-hack-spillover, as explained on the
 [Pessimistic Proof](pessimistic_proof.md) page.
 
 At this point, Zigil knows that Polygon PoS has at least 50 USDT and that at
-least this much belongs to Alistair. In the UI, it will allow Alistair to send
-50 USDT. But how does it _send_ to another chain? Surely a blockchain isn't aware
-of another blockchain's assets or its recipients?
+least this much belongs to Alistair. 
+
+In the UI, it will allow Alistair to send 50 USDT. But how does it _send_ to
+another chain? Surely a blockchain isn't aware of another blockchain's assets or
+its recipients?
 
 Indeed, this is exactly why we need a unifying wallet to abstract away the need
 to individually interact with each chain. So what does Zigil actually do now?
@@ -101,18 +107,21 @@ Zigil will create a batch of steps to be executed:
    to the next step.
 2. Mint 50 USDT on SwaderChain in favor of Bob, with a reference note to the
    previous step.
-3. Batch these two steps into a single transaction to be sequenced on the AggLayer.
+3. Batch these two steps into a single transaction for inclusion in the AggLayer.
 
 With the intent now clear, we need proofs that these steps are valid for them to
-execute. The AggLayer takes over by processing the batch.
+execute.
 
 ## Authenticator, Prover, Aggregator, and Settler
 
 An authenticator is a component which authenticates the block production of a
-chain. Each chain provides its own authenticator to the AggLayer, such that the
+chain and the exit tree submitted by the chain.
+
+Each chain provides its own authenticator to the AggLayer, such that the
 AggLayer can run checks against it. If a block and the chain's Pessimistic Proof
 are authenticated with the Prover, the Aggregator will aggregate them into a
-single proof. This proof is then sent to the Settler (in this case a tool called Ethereman) which will send it to the L1 for final settlement.
+single proof. This proof is then sent to the Settler (in this case a tool called
+Ethereman) which will send it to the L1 for final settlement.
 
 In the phase before settling but after verifying proofs, the state of the chains
 is still in the AggLayer. In [pragmatism](trust.md), this is the state that is
@@ -123,17 +132,21 @@ are enough to confirm that the state transition is valid.
 
 ## Minting and Burning
 
-The batch is now unpacked and executed, making the following state transitions:
+The AggLayer does not execute transactions. It only verifies the chain Trees and
+aggregates the proofs of their validity. The actual execution of the transaction
+is done by the sequencer, or some application that is trusted to do so.
+
+The batch is now unpacked and executed, making the following
+state transitions:
 
 1. Burn 50 USDT on Polygon PoS
 2. Reduce Polygon PoS's withdrawable USDT balance by 50
-3. Mint 50 USDT on SwaderChain
-4. Increase SwaderChain's withdrawable USDT balance by 50
-5. Send 50 USDT on SwaderChain to Bob
+3. Issue certificate about the validity of this state transition
+4. Once authenticator verifies the certificate, it means all the transferred
+   assets can now be "safely" claimed on destination chains
+5. Mint 50 USDT on SwaderChain, claim in Bob's name
+6. Increase SwaderChain's withdrawable USDT balance by 50
 
-After these steps, both chains will be generating a Local Exit Tree of
-withdrawals to be submitted to the AggLayer as Pessimistic Proofs. This is done
-to secure the unified bridge from hack spillovers. Further, both chains will be
-generating a proof of their state transition to be validated by the
-_authenticator_ of each chain.
-
+After these steps, both chains will again be generating a Local Exit Tree and
+Local Balance Tree of withdrawals to be submitted to the AggLayer as Pessimistic
+Proofs. This is again done to secure the unified bridge from hack spillovers.
