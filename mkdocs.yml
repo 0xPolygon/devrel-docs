@@ -16,8 +16,13 @@ nav:
   - AggLayer:
     - Overview: agglayer/overview.md
     - Trust: agglayer/trust.md
+    - Exit and Balance Trees: agglayer/lbt_vs_let.md
     - A Day in the Life of an AggLayer Transaction: agglayer/ditl.md
     - Pessimistic Proof: agglayer/pessimistic_proof.md
     - Unified Liquidity: agglayer/unified_liquidity.md
   - Miden:
     - Note Types: miden/note_types.md
+  - PoS:
+    - Overview: pos/overview.md
+    - Tutorials:
+      - Understanding and Implementing Milestones: pos/tutorials/milestones.md
