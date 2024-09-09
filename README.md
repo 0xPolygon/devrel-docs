@@ -16,16 +16,19 @@ adding it.
 ### Getting your feet wet
 
 - General Concepts
-  - [ ] The Polygon stack: Clarifying the choice
-  - [ ] EVM vs zkEVM
+  - [x] The Polygon stack: Clarifying the choice
 - Agglayer
-  - [ ] Intro into AggLayer
+  - [x] Overview
+  - [x] Trust Levels Between AggLayer Chains
   - [ ] Learn AggLayer: A comprehensive list of external resources
-  - [ ] A day in the life of an AggLayer tx
+  - [x] A day in the life of an AggLayer tx
+  - [x] Pessimistic Proof
+  - [x] Unified Liquidity
   - [ ] Block building in Agglayer
   - [ ] Network parameters and contract addresses
   - [ ] Detailed look at AggLayer L1 contracts
 - PoS
+  - [ ] Overview
   - [ ] A Day in the Life of a Polygon PoS TX
   - [ ] Block building in Polygon PoS
   - [ ] Network parameters and contract addresses
@@ -33,6 +36,7 @@ adding it.
   - [ ] Let’s deploy a contract to Polygon PoS!
   - [ ] The gas costs implications of advanced contracts
 - zkEVM
+  - [ ] Overview
   - [ ] A Day in the Life of a Polygon zkEVM TX
   - [ ] Block building in Polygon zkEVM
   - [ ] Network parameters and contract addresses
@@ -40,7 +44,9 @@ adding it.
   - [ ] Let’s deploy a contract to Polygon zkEVM!
   - [ ] The gas costs implications of advanced contracts and L1 settlements
 - Miden Basic
+  - [ ] Overview
   - [ ] A Day in the Life of a Miden TX
+  - [x] Note Types
   - [ ] Block building in Miden
   - [ ] Network parameters
   - [ ] Miden Use Cases
@@ -157,6 +163,15 @@ If it runs and renders well here, it will render correctly on the Knowledge
 Layer. If there are any unfixed errors breaking the local build, it will
 probably break on import to the Knowledge Layer.
 
+## Commands
+
+- `mkdocs new [dir-name]` - Create a new project.
+- `mkdocs serve` - Start the live-reloading docs server.
+- `mkdocs build` - Build the documentation site.
+- `mkdocs -h` - Print help message and exit.
+
 ### Linting
 
-There is a linting script at `./prettier.sh` which you can run if you have Prettier installed. The `.prettierrc` file is used to configure Prettier and should work with most modern IDEs and build processes.
+There is a linting script at `./prettier.sh` which you can run if you have
+Prettier installed. The `.prettierrc` file is used to configure Prettier and
+should work with most modern IDEs and build processes.

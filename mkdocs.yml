@@ -1,4 +1,28 @@
-site_name: Devrel docs
+site_name: Polygon Learn
+site_author: Polygon Labs
+copyright: Copyright &copy; 2024 Polygon Labs
+repo_name: Devrel docs
+repo_url: https://github.com/0xPolygon/devrel-docs
+edit_uri: edit/main/docs/
+site_url: https://learn.polygon.technology/
 
 theme:
   name: material
+
+nav:
+  - Home: index.md
+  - General:
+    - Stack Choice: general/stack_choice.md
+  - AggLayer:
+    - Overview: agglayer/overview.md
+    - Trust: agglayer/trust.md
+    - Exit and Balance Trees: agglayer/lbt_vs_let.md
+    - A Day in the Life of an AggLayer Transaction: agglayer/ditl.md
+    - Pessimistic Proof: agglayer/pessimistic_proof.md
+    - Unified Liquidity: agglayer/unified_liquidity.md
+  - Miden:
+    - Note Types: miden/note_types.md
+  - PoS:
+    - Overview: pos/overview.md
+    - Tutorials:
+      - Understanding and Implementing Milestones: pos/tutorials/milestones.md
