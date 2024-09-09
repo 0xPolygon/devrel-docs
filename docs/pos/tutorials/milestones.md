@@ -83,8 +83,7 @@ With the introduction of milestones:
 
 ![Finality After Milestones](../../images/milestones_03.png)
 
-_Finality achieved after 30 blocks (approx. 1 minute)._
-
+_Finality achieved after at least 12 blocks confirmation and 4 blocks of buffer, as well as a consensus period among the validators (approx. 1-2 minute)_
 ## Using the Milestone API
 
 Here's a simple code example to check if a transaction has reached finality
