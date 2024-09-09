@@ -14,5 +14,6 @@ Start by learning the basics about the key concepts of Polygon's technology:
 - [AggLayer](agglayer/overview.md)
 - Polygon PoS
 - Polygon zkEVM
-- Miden
+- Polygon Miden
 - Polygon CDK
+- Polygon Plonky3
