@@ -22,6 +22,7 @@ nav:
     - Unified Liquidity: agglayer/unified_liquidity.md
   - Miden:
     - Note Types: miden/note_types.md
+    - Note Efficiency: miden/note_efficiency.md
   - PoS:
     - Overview: pos/overview.md
     - Tutorials:
