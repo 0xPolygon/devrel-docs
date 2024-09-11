@@ -20,7 +20,10 @@ nav:
     - A Day in the Life of an AggLayer Transaction: agglayer/ditl.md
     - Pessimistic Proof: agglayer/pessimistic_proof.md
     - Unified Liquidity: agglayer/unified_liquidity.md
+  - CDK:
+    - Overview: cdk/overview.md
   - Miden:
+    - Overview: miden/overview.md
     - Notes and Their Features: miden/note_features.md
     - Note Types: miden/note_types.md
   - PoS:
@@ -29,4 +32,7 @@ nav:
       - Understanding and Implementing Milestones: pos/tutorials/milestones.md
   - Plonky3:
     - Overview: plonky3/overview.md
-    - Fibonacci: plonky3/examples/fibonacci.md
+    - Examples:
+      - Fibonacci: plonky3/examples/fibonacci.md
+  - zkEVM:
+    - Overview: zkevm/overview.md
