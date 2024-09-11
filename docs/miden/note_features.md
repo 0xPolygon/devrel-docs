@@ -1,14 +1,39 @@
-# Miden's Note Efficiency
+# Notes and Their Features
+
+Notes in Miden are a fundamental component of its hybrid UTXO and account-based
+state model, designed to enhance both parallel transaction execution and
+privacy. Unlike Ethereum's account-based model, Miden's notes facilitate asset
+interactions and transfers between accounts asynchronously and privately.
+
+![Note composition - from https://docs.polygon.technology/miden/miden-base/architecture/notes](../images/note_eff_04.png)
+
+Each note in Miden can contain up to 256 assets, stored in a single hash, and
+includes a script that defines the conditions for its consumption. This script,
+executed during the transaction, ensures that the note can only be consumed if
+specific conditions are met. Additionally, notes have inputs that can be
+accessed by the note script, a unique serial number to prevent linkability, and
+metadata such as the sender and note tag, which remain public regardless of the
+note's storage mode.
+
+The lifecycle of a note begins with its creation during transaction execution,
+where it is recorded in the note database. Depending on the
+[note's privacy setting](./note_types.md), the full note data (for public
+notes), the encrypted note data (for encrypted notes) or just the note hash (for
+private notes) is stored.
+
+Notes can be produced and consumed locally by users or by the network operator
+in a transaction. To consume a note, the transacting party must know the note
+data to compute the nullifier, which, once verified, marks the note as consumed
+in the nullifier database. This process ensures that notes can be managed
+efficiently while maintaining the privacy and integrity of transactions within
+the Miden network.
+
+To learn more about the technical details of notes, you can refer to the
+[Miden technical docs](https://docs.polygon.technology/miden/miden-base/architecture/notes).
 
 Miden's approach to note efficiency is a key differentiator in the landscape of
-privacy-focused blockchains. By leveraging innovative techniques for note
-discovery and management, Miden ensures both privacy and efficiency in handling
-transactions. This document explores the mechanisms behind Miden's note
-efficiency and how they contribute to a seamless user experience.
-
-As a reminder, Miden supports three types of notes: public, private, and
-encrypted. You can learn more about them in the [Miden Notes](./note_types.md)
-document.
+privacy-focused blockchains by leveraging innovative techniques for note
+discovery and management.
 
 ## Efficient Note Discovery
 
