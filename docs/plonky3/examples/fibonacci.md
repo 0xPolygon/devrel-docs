@@ -1,41 +1,74 @@
-## Understand Fibonacci AIR Example
+# Fibonacci AIR Example
 
-So now that we briefly walked through [what Plonky3 is and how does it work](../overview.md), let's see this simple hands-on example to learn more!
+So now that we briefly walked through
+[what Plonky3 is and how it works](../overview.md), let's see this hands-on
+example to learn more!
 
-We will walk through our fibonacci example code via blow steps
+This example demonstrates how to implement a Fibonacci sequence calculator using
+Algebraic Intermediate Representation (AIR) in Plonky3. AIR is a way to express
+computations as polynomial constraints, which is crucial for creating
+zero-knowledge proofs.
+
+The Fibonacci sequence is a series of numbers where each number is the sum of
+the two preceding ones, usually starting with 0 and 1. For example: 0, 1, 1, 2,
+3, 5, 8, 13, ...
+
+We will follow these steps:
 
 ![Plonky3 Steps](./../../images/p3_fib_steps.png)
 
-<center>Steps of how to create a zk system using Plonky3</center>
+## Step One: Define your Program
 
-### Step One: Define your Program
-
-First you will need to understand what is the computation you want to prove, in our case is a program that calculates Fibonacci sequence after `n` of steps.
+First you will need to understand what is the computation you want to prove. In
+our case, it is a program that calculates a Fibonacci sequence after `n` steps.
 
 Then we have requirements of:
+
 1. The program must always start with 0 and 1 as the initial inputs
-2. Each iteration will have two inputs and a output. The second input of the current input will become the first input of the next iteration, and the sum of the current two inputs will become the second input of the next iteration.
-3. Will iterate `n` steps based on the configuration, and its result will be different according to numbers of steps iterated.
+2. Each iteration will have two inputs and a output. The second input of the
+   current input will become the first input of the next iteration, and the sum
+   of the current two inputs will become the second input of the next iteration.
+3. Will iterate `n` steps based on the configuration, and its result will be
+   different according to numbers of steps iterated.
 
-### Step Two: Define your AIR Constraints
+## Step Two: Define your AIR Constraints
 
-Now that we have our program logic thought out, we will convert them into AIR Constraints.
+Now that we have our program logic thought out, we will convert it into AIR Constraints.
 
-AIR Constraint is about working with the execution trace, where you can imagine it as a 2D-matrix. Each row represents the current iteration of the computation, and the width of the each row represents the elements that are associated with the whole computation. Basically, in a zkVM context, this could mean that the width of the row is all the registers in this zkVM system, and each row iteration is the transition of all registers from one PC count to next.
+AIR Constraints are about working with the execution trace, where you can imagine
+it as a 2D-matrix.
 
->**Tips on defining your AIR Scripts:**
->1. Define the valid state transition, aka what are the constraints when transitioning from one row to the one below it
->2. Define relations among the fields in the same row if needed, sometimes we have constraints that are only about a single column as well, like if a column is supposed to be 0 or 1 we do x (x - 1) = 0 (or assert_bool() shorthand)
->3. Define constraints on initial state, if the program has to be ran starting with specific initial state
->4. Define constraints on ending state, if the program result needs to be public at the end of execution in this program.
+Each row represents the current iteration of the computation, and the width of
+each row represents the elements that are associated with the whole
+computation. Basically, in a zkVM context, this could mean that the width of
+the row is all the registers in this zkVM system, and each row iteration is
+the transition of all registers from one PC count to next.
 
-In our example, Fibonacci program, creating AIR constraints are fairly simple, each row is the current 2 numbers to be added, so the width will be 2. Every row will have a relations of:
+*Tips on defining your AIR Scripts:*
+
+1. Define the valid state transition, aka what are the constraints when
+   transitioning from one row to the one below it.
+2. Define relations among the fields in the same row if needed. Sometimes we
+   have constraints that are only about a single column as well, like if a
+   column is supposed to be 0 or 1 we do x (x - 1) = 0 (or assert_bool()
+   shorthand).
+3. Define constraints on initial state, if the program has to be run starting
+   with a specific initial state.
+4. Define constraints on ending state, if the program result needs to be public
+   at the end of execution in this program.
+
+In our example, each row is the current 2 numbers to be added, so the width will
+be 2. Every row will have a relation of:
+
 1. Second field of the current row is the first field of the next row
-2. The sum of the both fields of the current row is equal to the second field of the next row
+2. The sum of the both fields of the current row is equal to the second field
+   of the next row
 
-Also we need to make sure that our program starts with 0 and 1 for the correct execution, as well as, verify the final execution result is the same as expected result.
+We also need to make sure that our program starts with 0 and 1 for the correct
+execution, as well as, verify the final execution result is the same as expected
+result.
 
-```rust
+```rs
 // Define your AIR constraints inputs via declaring a Struct with relevant inputs inside it.
 pub struct FibonacciAir {
     pub num_steps: usize, // numbers of steps to run the fibonacci iterations
@@ -73,7 +106,10 @@ impl<AB: AirBuilder> Air<AB> for FibonacciAir {
 
 ### Step Three: Define your Execution Trace
 
-Third step is to define the function to generate your program's execution trace. The general idea is to create a function that keeps track of all relevant state of each iteration, and push them all into a vector, then at last convert this 1D vector into a Matrix in the dimension that matches your AIR Script's width.
+Third step is to define the function to generate your program's execution trace.
+The general idea is to create a function that keeps track of all relevant state
+of each iteration, and pushes them all into a vector, then at last convert this 1D
+vector into a Matrix in the dimension that matches your AIR Script's width.
 
 ```rust
 pub fn generate_fibonacci_trace<F: Field>(num_steps: usize) -> RowMajorMatrix<F> {
@@ -98,7 +134,8 @@ pub fn generate_fibonacci_trace<F: Field>(num_steps: usize) -> RowMajorMatrix<F>
 }
 ```
 
-If you are curious how the execution trace looks like, here's the execution trace of running 8 steps of Fibonacci program.
+If you are curious how the execution trace looks like, here's the execution
+trace of running 8 steps of Fibonacci program.
 
 | col 0 | col 1 |
 | ------ | ------ |
@@ -115,13 +152,18 @@ We now have both AIR scripts and execution trace ready.
 
 ### Step Four: Choose your Field and Hash Functions
 
-Now it is time to start layout our zk system. We first start with your `Field` and `Hash Function` of choice
+It is time to start the layout of our ZK system. We first start with your
+`Field` and `Hash Function` of choice.
 
-```rust
+The choice of field and hash function is crucial for the security and efficiency
+of your zero-knowledge proof system.
+
+```rs
 // Your choice of Field
 type Val = Mersenne31;
+
 // This creates a cubic extension field over Val using a binomial basis. It's used for generating challenges in the proof system.
-// The reason why we want to extend our field for Challenges, is because the original Field size is too small that can be brute-forced to solve the challenge.
+// The reason why we want to extend our field for Challenges, is because the original Field size is too small to be brute-forced to solve the challenge.
 type Challenge = BinomialExtensionField<Val, 3>;
 
 // Your choice of Hash Function
@@ -136,16 +178,25 @@ let field_hash = FieldHash::new(Keccak256Hash {});
 
 ### Step Five: Write your ZK System Setup
 
-This is a very generic setup and its ready to used in all kinds of ZK systems. So generally you can just copy paste the blow code and use it in your own ZK systems.
+This is a very generic setup and it's ready to be used in all kinds of ZK systems.
+Generally, you can just copy paste the below code and use it in your own ZK
+systems.
 
-1. First setup is to define the Compression function, it is used in the MMCS (Multi-Merkle Commitment Tree) construction process. 
-2. Use the Field, Field Hash function and the compression function to create MMCS instance, we shall call this `ValMmcs`.
-3. Extend the `ValMmcs` instance created from previous step into the same extension field as `Challenge` from Step Four, we call it `ChallangeMmcs`
-4. Define a `Challenger` for Proof Generation (its necessary in the PIOP process), which will be used in STARK configuration. Basically creating random challenge inputs for PIOP process.
-5. Define `fri_config`, then it is used to create `Pcs` (Polynomial Commitment Scheme).
-6. At last, with `Pcs`, `Challenge`, `Challenger` prepared, we use them to define our STARK configuration.
+1. First setup is to define the Compression function, it is used in the MMCS
+   (Multi-Merkle Commitment Tree) construction process.
+2. Use the Field, Field Hash function and the compression function to create
+   MMCS instance, we shall call this `ValMmcs`.
+3. Extend the `ValMmcs` instance created from previous step into the same
+   extension field as `Challenge` from Step Four, we call it `ChallangeMmcs`
+4. Define a `Challenger` for Proof Generation (it's necessary in the PIOP
+   process), which will be used in STARK configuration. Basically creating
+   random challenge inputs for PIOP process.
+5. Define `fri_config`, which is later used to create `Pcs` (Polynomial
+   Commitment Scheme).
+6. At last, with `Pcs`, `Challenge`, `Challenger` prepared, we use them to
+   define our STARK configuration.
 
-```rust
+```rs
 // Defines a compression function type using ByteHash, with 2 input blocks and 32-byte output.
 type MyCompress = CompressionFunctionFromHasher<u8, ByteHash, 2, 32>;
 // Creates a new instance of the compression function.
@@ -189,9 +240,10 @@ let config = MyConfig::new(pcs);
 
 ### Step Six: Prove & Verify
 
-After the long process of defining the ZK setup, its time to use it to prove and verify our program!
+After the long process of defining the ZK setup, it's time to use it to prove
+and verify our program!
 
-```rust
+```rs
 // First define your AIR constraints inputs
 let num_steps = 8; // Choose the number of Fibonacci steps.
 let final_value = 21; // Choose the final Fibonacci value
@@ -215,16 +267,42 @@ verify(&config, &air, &mut challenger, &proof, &vec![])
 ### Result
 
 If all of the above code works, this is the output you can expect:
-```rust
+
+```bash
 cargo run
 ```
+
 ![Result](././../../images/p3_fib_result.png)
 
-### More complicated Example: Plonky3 Keccak AIR Scripts
+## Performance Considerations
 
-There are various configurations you can explore in Plonky3, 
+When implementing AIRs for more complex computations, consider:
+
+1. Optimizing the number of constraints
+2. Balancing between prover time and verifier time
+3. Choosing appropriate field sizes and extension degrees
+
+## Troubleshooting
+
+Common issues:
+
+1. Incorrect final value: Ensure your Fibonacci calculation matches the AIR
+   constraints
+2. Proof verification failure: Double-check that the challenger initialization
+   is identical for proving and verifying
+
+## Additional Resources
+
+- [STARKs Whitepaper](https://eprint.iacr.org/2018/046.pdf)
+- [Plonky3 Documentation](https://github.com/Plonky3/Plonky3)
+- [Introduction to AIRs](https://medium.com/starkware/arithmetization-i-15c046390862)
+
+---
+
+There are various other configurations you can explore in Plonky3:
 
 Fields:
+
 - Goldilocks
 - BabyBear
 - KoalaBear
@@ -232,6 +310,7 @@ Fields:
 - BN254
 
 Hashes:
+
 - Poseidon
 - Poseidon2
 - Rescue
@@ -242,4 +321,7 @@ Hashes:
 
 ### Advanced Examples
 
-If you want to check out the implementation of each combination, checkout the example [keccak-air](https://github.com/Plonky3/Plonky3/tree/main/keccak-air). This is an example implementation of Keccak (SHA-3) using the Plonky3 framework.
+If you want to check out the implementation of each combination, check the
+example in
+[keccak-air](https://github.com/Plonky3/Plonky3/tree/main/keccak-air). This is
+an example implementation of Keccak (SHA-3) using the Plonky3 framework.
