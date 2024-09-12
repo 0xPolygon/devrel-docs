@@ -12,8 +12,8 @@ Edit on any page in this documentation portal.
 Start by learning the basics about the key concepts of Polygon's technology:
 
 - [AggLayer](agglayer/overview.md)
-- Polygon PoS
-- Polygon zkEVM
-- Polygon Miden
-- Polygon CDK
-- Polygon Plonky3
+- [Polygon PoS](pos/overview.md)
+- [Polygon zkEVM](zkevm/overview.md)
+- [Polygon Miden](miden/overview.md)
+- [Polygon CDK](cdk/overview.md)
+- [Polygon Plonky3](plonky3/overview.md)
