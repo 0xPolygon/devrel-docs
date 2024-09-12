@@ -1,7 +1,6 @@
 # Learn platform
 
-In progress material for <https://docs.polygon.technology/innovation-design/>,
-to be rebranded as Learn. Content managed by the
+In progress material for Polygon Docs' Learn section. Content managed by the
 [Polygon Devrel team](https://polygon.technology/community/meet-the-devrel).
 
 ## Content
@@ -12,6 +11,10 @@ stack in the wild that isn't mentioned here, please feel free to
 [open an issue](https://github.com/0xPolygon/devrel-docs/issues) or
 [contact us](https://polygon.technology/community/meet-the-devrel) to discuss
 adding it.
+
+Please note that if you PR some of your content in, it is not guaranteed to be
+published. If we do accept it, we will be modifying it to fit the style of the
+rest of the site. You will get full credit for your work.
 
 ### Getting your feet wet
 
@@ -24,11 +27,12 @@ adding it.
   - [x] A day in the life of an AggLayer tx
   - [x] Pessimistic Proof
   - [x] Unified Liquidity
+  - [x] Understand Exit and Balance Trees
   - [ ] Block building in Agglayer
   - [ ] Network parameters and contract addresses
   - [ ] Detailed look at AggLayer L1 contracts
 - PoS
-  - [ ] Overview
+  - [x] Overview
   - [ ] A Day in the Life of a Polygon PoS TX
   - [ ] Block building in Polygon PoS
   - [ ] Network parameters and contract addresses
@@ -36,7 +40,7 @@ adding it.
   - [ ] Let’s deploy a contract to Polygon PoS!
   - [ ] The gas costs implications of advanced contracts
 - zkEVM
-  - [ ] Overview
+  - [x] Overview
   - [ ] A Day in the Life of a Polygon zkEVM TX
   - [ ] Block building in Polygon zkEVM
   - [ ] Network parameters and contract addresses
@@ -44,8 +48,9 @@ adding it.
   - [ ] Let’s deploy a contract to Polygon zkEVM!
   - [ ] The gas costs implications of advanced contracts and L1 settlements
 - Miden Basic
-  - [ ] Overview
+  - [x] Overview
   - [ ] A Day in the Life of a Miden TX
+  - [x] Notes and Their Features
   - [x] Note Types
   - [ ] Block building in Miden
   - [ ] Network parameters
@@ -85,9 +90,13 @@ stack and are ready to take full advantage of some Polygon stack USPs.
 ### Deep dive
 
 - Plonky3
-  - [ ] Into Plonky3
+  - [x] Overview
   - [ ] How to choose your own configuration for Plonky3
-  - [ ] Your first AIR circuits and implementation, Fibonacci Example on Plonky3
+  - [x] Your first AIR circuits and implementation, Fibonacci Example on Plonky3
+  - [ ] Range Check Tutorial
+  - [ ] Merkle Tree Tutorial
+  - [ ] zkVM Step by Step Guide
+  - [ ] zkML Step by Step Guide
 - CDK
   - [ ] Kurtosis CDK
   - [ ] Validium vs Calldata Rollup
@@ -105,7 +114,6 @@ stack and are ready to take full advantage of some Polygon stack USPs.
 ### 🏆 Buildooors
 
 - [ ] Shipper directory
-- [ ] Quickswap case study
 - [ ] Shipper A case study
 - [ ] Shipper B case study
 - [ ] …
@@ -122,20 +130,22 @@ Additionally, we have a [YouTube channel](https://www.youtube.com/@0xPolygonTV)
 and a [Polygon blog](https://polygon.technology/blog).
 
 Long-form persisted discussions happen in the
-[Developer Forum](https://forum.polygon.technology/).
-
-## Contributing
-
-The process below will help you run the docs locally.
+[Developer Forum](https://forum.polygon.technology/c/developers/25).
 
 ### Repo Translations
+
+Please [get in touch](https://polygon.technology/community/meet-the-devrel) if
+you want to help translate this into other languages.
 
 - [x] English
 - [ ] Chinese
 - [ ] Thai
+- [ ] Croatian/Serbian
+- [ ] Klingon
 
-Please [get in touch](https://polygon.technology/community/meet-the-devrel) if
-you want to help translate this into other languages.
+## Contributing
+
+The process below will help you run the docs locally.
 
 ### Prerequisites
 
@@ -186,3 +196,11 @@ probably break on import to the Knowledge Layer.
 There is a linting script at `./prettier.sh` which you can run if you have
 Prettier installed. The `.prettierrc` file is used to configure Prettier and
 should work with most modern IDEs and build processes.
+
+Main rules:
+
+- use 2 spaces for indentation
+- use 80 characters for line length
+
+Other rules are loosely based on the
+[Microsoft Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/).
