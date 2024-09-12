@@ -40,3 +40,6 @@ nav:
 extra_javascript:
   - js/ethers-5.2.umd.min.js
   - js/wallet-signin.js
+
+extra_css:
+  - https://fonts.googleapis.com/icon?family=Material+Icons
