@@ -148,16 +148,27 @@ pip3 install virtualenv
 
 ### Setup
 
-1. Clone the repository.
-2. `cd` to the root.
-3. Run the `scripts/serve_docs.sh` script. You may need to make the script
-   executable: `chmod +x scripts/serve_docs.sh`
+1. Clone the repository to your local machine.
+2. Navigate to the root directory of the cloned repository:
 
-```sh
-sh scripts/serve_docs.sh
-```
+   ```sh
+   cd devrel-docs
+   ```
 
-The site comes up at <http://127.0.0.1:8000/>.
+3. Ensure the `serve_docs.sh` script is executable by running:
+
+   ```sh
+   chmod +x serve-docs.sh
+   ```
+
+4. To serve the documentation, run the following command:
+
+   ```sh
+   ./serve_docs.sh
+   ```
+
+5. Once the script executes, the documentation site will be accessible at:
+   <http://127.0.0.1:8000/>.
 
 If it runs and renders well here, it will render correctly on the Knowledge
 Layer. If there are any unfixed errors breaking the local build, it will
