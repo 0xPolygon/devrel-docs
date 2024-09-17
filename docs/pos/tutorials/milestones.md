@@ -35,7 +35,7 @@ into Milestones in this tutorial.
 ![Bor and Heimdall](../../images/milestones_01.png)
 
 For more on Bor and Heimdall check out the official
-[documentation](https://docs.polygon.technology/pos/architecture/#architectural-overview)
+[documentation](../pos/architecture/#architectural-overview)
 for more details on Bor and Heimdall.
 
 ## The Evolution of Finality: Before and After Milestones
@@ -193,6 +193,6 @@ is achieved with milestones on various Polygon networks.
 
 ## Resources/References
 
-- [Polygon PoS Documentation](https://docs.polygon.technology/docs/pos/overview)
+- [Polygon PoS Documentation](../pos/overview)
 - [Polygon PoS Faster Finality Announcement](https://polygon.technology/blog/faster-finality-with-the-aalborg-upgrade-for-polygon-proof-of-stake-network)
 - [PIP-11: Deterministic finality via Milestones](https://forum.polygon.technology/t/pip-11-deterministic-finality-via-milestones/11918)

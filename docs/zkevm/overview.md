@@ -4,9 +4,15 @@ Polygon zkEVM is a Layer 2 scaling solution for Ethereum that leverages
 zero-knowledge technology to provide fast and secure transaction validation with
 rapid finality.
 
+!!! info
+
+    To learn about zkEVM's technical details, architecture, and how to deploy
+    its parts, please see the
+    [zkEVM technical docs](../zkEVM/).
+
 As an EVM-equivalent solution, it supports
-[most Ethereum EIPs](https://docs-dev.polygon.technology/zkEVM/architecture/protocol/etrog-upgrade/#eips-support),
-[precompiles and opcodes](https://docs-dev.polygon.technology/zkEVM/architecture/protocol/etrog-upgrade/#zkevm-is-almost-type-2),
+[most Ethereum EIPs](../zkEVM/architecture/protocol/etrog-upgrade/#eips-support),
+[precompiles and opcodes](../zkEVM/architecture/protocol/etrog-upgrade/#zkevm-is-almost-type-2),
 allowing developers to seamlessly deploy existing Ethereum smart contracts and
 use familiar tools in a more cost-effective environment.
 
@@ -27,7 +33,7 @@ gas costs and improve overall efficiency.
 
 Developers and users can connect to the fully-audited Polygon zkEVM mainnet or
 its testnet (Cardona) using the
-[provided RPC URLs and chain IDs](https://docs-dev.polygon.technology/zkEVM/get-started/json-rpc/).
+[provided RPC URLs and chain IDs](../zkEVM/get-started/json-rpc/).
 With its combination of Ethereum compatibility, enhanced scalability, and robust
 security measures, Polygon zkEVM offers a powerful solution for those seeking to
 build and deploy decentralized applications with lower costs and higher

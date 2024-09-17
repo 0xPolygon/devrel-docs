@@ -1,7 +1,7 @@
 # Note Types
 
 To learn about the architecture of Notes in Miden, you can read the
-[technical docs](https://docs.polygon.technology/miden/miden-base/architecture/notes/).
+[technical docs](../miden/miden-base/architecture/notes/).
 
 In this document, we will focus on the different types of Notes and what they're
 used for.

@@ -2,9 +2,10 @@
 
 Polygon's Learn platform is an evolving collection of resources for learning
 about Polygon's technology stack and the underlying technologies that power it.
-The materials are maintained by the Polygon Devrel team and the community, and
-serve to familiarize you with Polygon's technology and ecosystem - from theory
-and concepts to practical examples.
+The materials are maintained by the
+[Polygon Devrel team](https://polygon.technology/community/meet-the-devrel) and
+the community, and serve to familiarize you with Polygon's technology and
+ecosystem - from theory and concepts to practical examples.
 
 As this platform is in its beta phase, it will be rapidly evolving. While we
 strive to provide accurate and up-to-date information, some mistakes and

@@ -6,6 +6,12 @@ accounts, a hybrid account/UTXO state model using [Notes](./note_features.md)
 execution and proof generation. It inherits Ethereum's security and
 decentralization, with the added benefit of privacy and high throughput.
 
+!!! info
+
+    To learn about Miden's technical details, architecture, and how to deploy
+    its parts, please see the
+    [Miden technical docs](../miden/).
+
 Miden is designed to be accessible to developers who may wish to build private
 applications in DeFi, Gaming, prediction markets, governance, and more. Let's
 walk through some examples:

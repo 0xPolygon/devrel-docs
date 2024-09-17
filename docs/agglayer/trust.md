@@ -3,6 +3,11 @@
 When joining the AggLayer, chains have different types of trust to choose
 between.
 
+!!! info
+
+    This is informal naming and subject to change - it's meant to be a quick
+    overview of the trust levels in a mnemonic way.
+
 1. Pessimistic (default)
 2. Pragmatic
 3. Positive
