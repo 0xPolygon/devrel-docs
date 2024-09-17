@@ -22,3 +22,6 @@ src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Persistence is key, and as always, getting your hands dirty with code and our
 interactive examples will provide you with the most benefit.
+
+This is an evolving subsection, so expect the structure to change and the
+[resource list](./learning_resources.md) to grow as we polish the flow.

@@ -11,3 +11,7 @@ some of the coming "jargon".
 - [Zero Knowledge Proofs Illustrated Primer](https://blog.cryptographyengineering.com/2014/11/27/zero-knowledge-proofs-illustrated-primer/):
   A great primer on ZKPs by one of the most respected cryptographers in the
   field.
+- ... coming soon ...
+
+Note that this is a living document, so expect the structure to change and the
+resource list to grow as we polish the flow.
