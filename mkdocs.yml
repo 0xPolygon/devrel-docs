@@ -9,10 +9,23 @@ site_url: https://learn.polygon.technology/
 theme:
   name: material
 
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
 nav:
   - Home: index.md
   - General:
     - Stack Choice: general/stack_choice.md
+  - Learning ZK:
+    - Overview: zk/key_concepts.md
+    - Polynomial Time: zk/polynomial_time.md
+    - NP Completeness: zk/np_completeness.md
+    - Cyclic Groups and Generators: zk/cyclic_groups_and_generators.md
+    - Learning Resources: zk/learning_resources.md
   - AggLayer:
     - Overview: agglayer/overview.md
     - Trust: agglayer/trust.md
@@ -38,8 +51,10 @@ nav:
     - Overview: zkevm/overview.md
 
 extra_javascript:
+  - js/mathjax.js
   - js/ethers-5.2.umd.min.js
   - js/wallet-signin.js
+  - js/tex-mml-chtml.js
 
 extra_css:
   - https://fonts.googleapis.com/icon?family=Material+Icons
