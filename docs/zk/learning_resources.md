@@ -11,4 +11,3 @@ some the coming "jargon".
 - [Zero Knowledge Proofs Illustrated Primer](https://blog.cryptographyengineering.com/2014/11/27/zero-knowledge-proofs-illustrated-primer/):
   A great primer on ZKPs by one of the most respected cryptographers in the
   field.
-- [A Gentle Introduction to ZKPs](https://medium.com/@VitalikButerin/a-gentle-introduction-to-zk-snarks-692f822f90de)
