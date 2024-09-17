@@ -55,6 +55,6 @@ liquidity, optimized performance, and seamless asset transfers across different
 chains, all while prioritizing user experience and data security.
 
 For those interested in exploring CDK further, Polygon provides
-[comprehensive technical documentation](https://docs.polygon.technology/cdk/)
+[comprehensive technical documentation](../cdk/)
 to help developers understand and leverage the full potential of this
 innovative toolkit. For hands on learning, stay tuned for the CDK tutorials.

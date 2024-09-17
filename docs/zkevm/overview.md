@@ -8,7 +8,7 @@ rapid finality.
 
     To learn about zkEVM's technical details, architecture, and how to deploy
     its parts, please see the
-    [zkEVM technical docs](https://docs.polygon.technology/zkEVM/).
+    [zkEVM technical docs](../zkEVM/).
 
 As an EVM-equivalent solution, it supports
 [most Ethereum EIPs](../zkEVM/architecture/protocol/etrog-upgrade/#eips-support),

@@ -29,7 +29,7 @@ efficiently while maintaining the privacy and integrity of transactions within
 the Miden network.
 
 To learn more about the technical details of notes, you can refer to the
-[Miden technical docs](https://docs.polygon.technology/miden/miden-base/architecture/notes).
+[Miden technical docs](../miden/miden-base/architecture/notes).
 
 Miden's approach to note efficiency is a key differentiator in the landscape of
 privacy-focused blockchains by leveraging innovative techniques for note

@@ -37,7 +37,7 @@ relatively new leaves room for some more first-mover-advantages to be claimed.
 One caveat is that due to the nature of ZK technology and its mathematical
 specificity, EVM and zkEVM are not exactly at full feature parity, so some
 caution is warranted. For a full list of differences, please see the
-[zkEVM docs](https://docs.polygon.technology/zkEVM/spec/evm-differences/).
+[zkEVM docs](../zkEVM/spec/evm-differences/).
 
 Polygon Miden is a zero-knowledge rollup for private, high-throughput
 applications. It is a modular execution layer that extends Ethereum’s
