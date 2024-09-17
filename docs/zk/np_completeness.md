@@ -2,7 +2,7 @@
 
 NP-completeness is a concept from computational complexity theory, which is a
 field that studies the difficulty of solving different computational problems.
-To explain it in a way that avoids heavy math jargon but is still rigorous,
+To explain it in a way that avoids heavy math jargon, though still rigorous,
 let's break it down step by step.
 
 Key Concepts:
