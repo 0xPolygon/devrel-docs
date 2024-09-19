@@ -89,7 +89,7 @@ chain-hack-spillover, as explained on the
 [Pessimistic Proof](pessimistic_proof.md) page.
 
 At this point, Zigil knows that Polygon PoS has at least 50 USDT and that at
-least this much belongs to Alistair. 
+least this much belongs to Alistair.
 
 In the UI, it will allow Alistair to send 50 USDT. But how does it _send_ to
 another chain? Surely a blockchain isn't aware of another blockchain's assets or

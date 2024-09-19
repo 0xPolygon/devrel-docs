@@ -11,7 +11,7 @@ L2s.
 
     To learn about CDK's technical details, architecture, and how to deploy
     its parts, please see the
-    [CDK technical docs](../cdk/).
+    [CDK technical docs](https://docs.polygon.technology/cdk/).
 
 This document will evolve as it dives in depth explaining every part of the CDK,
 deploying each element of the Kurtosis stack separately, and showing you how

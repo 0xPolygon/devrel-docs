@@ -5,7 +5,7 @@ sidechain, a Layer 2 scaling solution for Ethereum. It aims to provide faster
 and cheaper transactions while leveraging the security of the Ethereum mainnet.
 
 The technical details about Polygon PoS are available in the
-[official documentation](../pos/).
+[official documentation](https://docs.polygon.technology/pos/).
 
 > Originally launched as Matic Network in June 2020, Polygon PoS has undergone
 > numerous upgrades since its inception. Initially designed to scale Ethereum

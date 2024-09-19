@@ -35,7 +35,7 @@ into Milestones in this tutorial.
 ![Bor and Heimdall](../../images/milestones_01.png)
 
 For more on Bor and Heimdall check out the official
-[documentation](../pos/architecture/#architectural-overview)
+[documentation](https://docs.polygon.technology/pos/architecture/#architectural-overview)
 for more details on Bor and Heimdall.
 
 ## The Evolution of Finality: Before and After Milestones
@@ -83,7 +83,9 @@ With the introduction of milestones:
 
 ![Finality After Milestones](../../images/milestones_03.png)
 
-_Finality achieved after at least 12 blocks confirmation and 4 blocks of buffer, as well as a consensus period among the validators (approx. 1-2 minute)_
+_Finality achieved after at least 12 blocks confirmation and 4 blocks of buffer,
+as well as a consensus period among the validators (approx. 1-2 minute)_
+
 ## Using the Milestone API
 
 Here's a simple code example to check if a transaction has reached finality
@@ -193,6 +195,6 @@ is achieved with milestones on various Polygon networks.
 
 ## Resources/References
 
-- [Polygon PoS Documentation](../pos/overview)
+- [Polygon PoS Documentation](https://docs.polygon.technology/pos/overview)
 - [Polygon PoS Faster Finality Announcement](https://polygon.technology/blog/faster-finality-with-the-aalborg-upgrade-for-polygon-proof-of-stake-network)
 - [PIP-11: Deterministic finality via Milestones](https://forum.polygon.technology/t/pip-11-deterministic-finality-via-milestones/11918)

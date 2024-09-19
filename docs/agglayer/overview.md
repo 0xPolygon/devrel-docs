@@ -8,10 +8,10 @@ complex operations. The safety of the AggLayer is provided by ZK proofs.
 
     To learn about AggLayer's technical details, architecture, and how to deploy
     its parts, please see the
-    [AggLayer technical docs](../agglayer/overview/).
+    [AggLayer technical docs](https://docs.polygon.technology/agglayer/overview/).
 
 The AggLayer currently connects chains built with
-[Polygon CDK](../cdk/), a developer toolkit for
+[Polygon CDK](https://docs.polygon.technology/cdk/), a developer toolkit for
 designing ZK-powered Layer 2s. The long term goal for the protocol is to be
 flexible enough to provide interoperability among a growing range of blockchain
 architectures, including L2s, appchains, and non-EVM chains.
@@ -79,4 +79,4 @@ There are four main things that a chain needs:
 - oracle equivalent: component that submits the L1 GER information to the chain.
 
 Most of these needs will be covered by the
-[CDK](../cdk/).
+[CDK](https://docs.polygon.technology/cdk/).

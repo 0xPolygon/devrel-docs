@@ -8,11 +8,11 @@ rapid finality.
 
     To learn about zkEVM's technical details, architecture, and how to deploy
     its parts, please see the
-    [zkEVM technical docs](../zkEVM/).
+    [zkEVM technical docs](https://docs.polygon.technology/zkEVM/).
 
 As an EVM-equivalent solution, it supports
-[most Ethereum EIPs](../zkEVM/architecture/protocol/etrog-upgrade/#eips-support),
-[precompiles and opcodes](../zkEVM/architecture/protocol/etrog-upgrade/#zkevm-is-almost-type-2),
+[most Ethereum EIPs](https://docs.polygon.technology/zkEVM/architecture/protocol/etrog-upgrade/#eips-support),
+[precompiles and opcodes](https://docs.polygon.technology/zkEVM/architecture/protocol/etrog-upgrade/#zkevm-is-almost-type-2),
 allowing developers to seamlessly deploy existing Ethereum smart contracts and
 use familiar tools in a more cost-effective environment.
 
@@ -29,11 +29,11 @@ data and proof storage, an efficient bridge implementation using Merkle roots,
 and a specialized zkProver component. The zkProver utilizes advanced
 cryptographic techniques, including a custom zero-knowledge assembly language
 (zkASM) and a combination of zk-STARKs and zk-SNARKs, to significantly reduce
-gas costs and improve overall efficiency.
+gas costs and improve overall efficiency.I will
 
 Developers and users can connect to the fully-audited Polygon zkEVM mainnet or
 its testnet (Cardona) using the
-[provided RPC URLs and chain IDs](../zkEVM/get-started/json-rpc/).
+[provided RPC URLs and chain IDs](https://docs.polygon.technology/zkEVM/get-started/json-rpc/).
 With its combination of Ethereum compatibility, enhanced scalability, and robust
 security measures, Polygon zkEVM offers a powerful solution for those seeking to
 build and deploy decentralized applications with lower costs and higher
