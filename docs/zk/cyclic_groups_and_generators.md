@@ -91,18 +91,18 @@ so the order of 3 is 4.
 What about element 5? The remainder wraps around, so we have to take this into
 account. As such, we will have:
 
-1. $5 mod 12 = 5$
-2. $5 + 5 = 10 mod 12 = 10$
-3. $5 + 5 + 5 = 15 mod 12 = 3$
-4. $3 + 5 = 8 mod 12 = 8$
-5. $8 + 5 = 13 mod 12 = 1$
-6. $1 + 5 = 6 mod 12 = 6$
-7. $6 + 5 = 11 mod 12 = 11$
-8. $11 + 5 = 16 mod 12 = 4$
-9. $4 + 5 = 9 mod 12 = 9$
-10. $9 + 5 = 14 mod 12 = 2$
-11. $2 + 5 = 7 mod 12 = 7$
-12. $7 + 5 = 12 mod 12 = 0$
+1. $5 \mod 12 = 5$
+2. $5 + 5 = 10 \mod 12 = 10$
+3. $5 + 5 + 5 = 15 \mod 12 = 3$
+4. $3 + 5 = 8 \mod 12 = 8$
+5. $8 + 5 = 13 \mod 12 = 1$
+6. $1 + 5 = 6 \mod 12 = 6$
+7. $6 + 5 = 11 \mod 12 = 11$
+8. $11 + 5 = 16 \mod 12 = 4$
+9. $4 + 5 = 9 \mod 12 = 9$
+10. $9 + 5 = 14 \mod 12 = 2$
+11. $2 + 5 = 7 \mod 12 = 7$
+12. $7 + 5 = 12 \mod 12 = 0$
 
 Thus, the order of 5 is 12. The maximum order of any element in this group is
 equal to the number of elements in the group, i.e. 12 (also known as the _order
