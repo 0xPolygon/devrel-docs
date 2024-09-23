@@ -68,6 +68,10 @@ rest of the site. You will get full credit for your work.
 A section for those who passed the basics of dapp development on the Polygon
 stack and are ready to take full advantage of some Polygon stack USPs.
 
+- PoS advanced
+  - [x] PoS Milestones to speed up finality
+  - [ ] Max Code Size
+  - [ ] Replay Failed State Sync
 - Miden advanced
   - [ ] Deep dive into Miden architecture
   - [ ] Advanced contract development techniques
@@ -78,6 +82,7 @@ stack and are ready to take full advantage of some Polygon stack USPs.
     - [ ] Let’s build a private-voting DAO step-by-step
     - [ ] Ensuring security and privacy: implications and tradeoffs
 - AggLayer
+  - [ ] Global Exit Root and Local Exit Root, how do they work?
   - [ ] Chaining cross-chain calls with `BridgeAndCall`
   - [ ] CCIP vs AggLayer for cross chain calls
   - [ ] Sequencing: centralization tradeoffs and future solutions
