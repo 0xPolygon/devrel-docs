@@ -77,6 +77,14 @@ stack and are ready to take full advantage of some Polygon stack USPs.
   - Advanced dApp development
     - [ ] Let’s build a private-voting DAO step-by-step
     - [ ] Ensuring security and privacy: implications and tradeoffs
+- CDK
+  - [ ] Deep dive into CDK architecture
+    - [ ] Sequencer: CDK Erigon Breakdown
+    - [ ] Prover: esp Capacity (zkCounter), Full Execution Proof
+    - [ ] Data Availability
+    - [ ] Features: Rollback Sequence (banana) & Sovereign upgrades
+  - [ ] How does it work with AggLayer?
+  - [ ] CDK CLI interface example
 - AggLayer
   - [ ] Chaining cross-chain calls with `BridgeAndCall`
   - [ ] CCIP vs AggLayer for cross chain calls
