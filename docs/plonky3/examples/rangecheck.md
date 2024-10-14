@@ -1,45 +1,5 @@
 # Range Check in Plonky3 - Constrain Degree Design & Intermediate Variables
 
-## Table of Contents
-- [Range Check in Plonky3 - Constrain Degree Design \& Intermediate Variables](#range-check-in-plonky3---constrain-degree-design--intermediate-variables)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction to Range Checks in Zero Knowledge Proofs](#introduction-to-range-checks-in-zero-knowledge-proofs)
-  - [Plonky3 Range Check Implementations](#plonky3-range-check-implementations)
-  - [Mersenne31 (m31) Range Check](#mersenne31-m31-range-check)
-    - [Overview](#overview)
-    - [Execution Trace](#execution-trace)
-    - [Constraints](#constraints)
-    - [Proof \& Verify](#proof--verify)
-      - [Test the range with number 100: (inside the range)](#test-the-range-with-number-100-inside-the-range)
-      - [Test the range with number $2^{31}-1$: (MAX number of the range)](#test-the-range-with-number-231-1-max-number-of-the-range)
-      - [Test the range with number $2^{32}-1$: (Over the range)](#test-the-range-with-number-232-1-over-the-range)
-  - [BabyBear Range Check (v1): A Basic Implementation](#babybear-range-check-v1-a-basic-implementation)
-    - [Overview](#overview-1)
-    - [Execution Trace](#execution-trace-1)
-    - [Constraints](#constraints-1)
-    - [Proof \& Verify](#proof--verify-1)
-      - [Test the range with number 100: (inside the range)](#test-the-range-with-number-100-inside-the-range-1)
-      - [Test the range with number $2^{31}-2^{27}$: (MAX number of the range)](#test-the-range-with-number-231-227-max-number-of-the-range)
-      - [Test the range with number $2^{31}-2^{27}+1$: (Over the range)](#test-the-range-with-number-231-2271-over-the-range)
-  - [Goldilocks v1 Range Check](#goldilocks-v1-range-check)
-    - [Overview](#overview-2)
-    - [Execution Trace](#execution-trace-2)
-    - [Constraints](#constraints-2)
-    - [Proof \& Verify](#proof--verify-2)
-      - [Test the range with number 100: (inside the range)](#test-the-range-with-number-100-inside-the-range-2)
-      - [Test the range with number $2^{64}-2^{32}$: (MAX number of the range)](#test-the-range-with-number-264-232-max-number-of-the-range)
-      - [Test the range with number $2^{64}-2^{32}+1$: (Over the range)](#test-the-range-with-number-264-2321-over-the-range)
-  - [BabyBear v2 Range Check \& Constraint Degree Comparison](#babybear-v2-range-check--constraint-degree-comparison)
-    - [Overview](#overview-3)
-    - [Constraint Degree](#constraint-degree)
-    - [BabyBear v1: A Degree-4 constraint](#babybear-v1-a-degree-4-constraint)
-    - [BabyBear v2: A Degree-2 Constraint](#babybear-v2-a-degree-2-constraint)
-    - [Proof \& Verify](#proof--verify-3)
-      - [Tested with following inputs using `release` version:](#tested-with-following-inputs-using-release-version)
-  - [Conclusion](#conclusion)
-  - [Goldilocks v2 Range Check?](#goldilocks-v2-range-check)
-
-
 ## Introduction to Range Checks in Zero Knowledge Proofs
 
 Range checks are fundamental operations in zero-knowledge proof systems. They allow us to prove that a value lies within a specific range without revealing the actual value. This is crucial for many applications, including:

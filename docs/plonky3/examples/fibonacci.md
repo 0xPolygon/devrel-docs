@@ -1,33 +1,5 @@
 # Fibonacci in Plonky3 - Introduction to Plonky3
 
-## Table of Contents
-- [Fibonacci in Plonky3 - Introduction to Plonky3](#fibonacci-in-plonky3---introduction-to-plonky3)
-  - [Table of Contents](#table-of-contents)
-  - [Polygon Plonky3 Overview](#polygon-plonky3-overview)
-  - [Understanding Plonky3](#understanding-plonky3)
-  - [How does Plonky3 work?](#how-does-plonky3-work)
-  - [Fibonacci AIR Example](#fibonacci-air-example)
-    - [Step One: Define your Program](#step-one-define-your-program)
-    - [Step Two: Define your AIR Constraints](#step-two-define-your-air-constraints)
-    - [Step Three: Define your Execution Trace](#step-three-define-your-execution-trace)
-    - [Step Four: Choose your Field and Hash Functions](#step-four-choose-your-field-and-hash-functions)
-    - [Step Five: Write your ZK System Setup](#step-five-write-your-zk-system-setup)
-    - [Step Six: Prove \& Verify](#step-six-prove--verify)
-    - [Result](#result)
-  - [Troubleshooting](#troubleshooting)
-  - [Additional Resources](#additional-resources)
-  - [Advanced Examples](#advanced-examples)
-
-## Polygon Plonky3 Overview
-
-[Plonky3](https://github.com/Plonky3/Plonky3) is a toolkit for implementing
-polynomial IOPs (PIOPs), such as PLONK and STARKs, allowing developers to
-configure a variety of to-spec implementations from a single ZK proving system.
-
-Polygon Plonky3 supports several finite fields and hash functions. Currently,
-the only supported polynomial commitment scheme is FRI, but future releases will
-support several, including Brakedown.
-
 ## Understanding Plonky3
 
 Plonky3 is a toolkit for designing a custom ZK proving implementation that can
