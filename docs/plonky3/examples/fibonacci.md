@@ -1,8 +1,72 @@
-# Fibonacci AIR Example
+# Fibonacci in Plonky3 - Introduction to Plonky3
 
-So now that we briefly walked through
-[what Plonky3 is and how it works](../overview.md), let's see this hands-on
-example to learn more!
+## Table of Contents
+- [Fibonacci in Plonky3 - Introduction to Plonky3](#fibonacci-in-plonky3---introduction-to-plonky3)
+  - [Table of Contents](#table-of-contents)
+  - [Polygon Plonky3 Overview](#polygon-plonky3-overview)
+  - [Understanding Plonky3](#understanding-plonky3)
+  - [How does Plonky3 work?](#how-does-plonky3-work)
+  - [Fibonacci AIR Example](#fibonacci-air-example)
+    - [Step One: Define your Program](#step-one-define-your-program)
+    - [Step Two: Define your AIR Constraints](#step-two-define-your-air-constraints)
+    - [Step Three: Define your Execution Trace](#step-three-define-your-execution-trace)
+    - [Step Four: Choose your Field and Hash Functions](#step-four-choose-your-field-and-hash-functions)
+    - [Step Five: Write your ZK System Setup](#step-five-write-your-zk-system-setup)
+    - [Step Six: Prove \& Verify](#step-six-prove--verify)
+    - [Result](#result)
+  - [Troubleshooting](#troubleshooting)
+  - [Additional Resources](#additional-resources)
+  - [Advanced Examples](#advanced-examples)
+
+## Polygon Plonky3 Overview
+
+[Plonky3](https://github.com/Plonky3/Plonky3) is a toolkit for implementing
+polynomial IOPs (PIOPs), such as PLONK and STARKs, allowing developers to
+configure a variety of to-spec implementations from a single ZK proving system.
+
+Polygon Plonky3 supports several finite fields and hash functions. Currently,
+the only supported polynomial commitment scheme is FRI, but future releases will
+support several, including Brakedown.
+
+## Understanding Plonky3
+
+Plonky3 is a toolkit for designing a custom ZK proving implementation that can
+then be used to power application-optimized zkVMs and zkEVMs.
+
+In the same way an AI dev uses Pytorch and Tensorflow for building AI models,
+Polygon Plonky3 provides the same flexibility for building ZK proving systems.
+Polygon Plonky3 enables simple builds, such as the Fibonacci sequence prover in
+this repo that requires only one AIR Script, to complex systems, such as SP1
+from Succinct labs with multiple AIR scripts for different components of a
+single zkVM.
+
+## How does Plonky3 work?
+
+Here's a TLDR version:
+
+1. Define the computation using Algebraic Intermediate Representation (AIR).
+2. Generate a trace of the computation based on the AIR.
+3. Utilize efficient finite field implementations for arithmetic operations.
+4. Apply Generalized Vector Commitment Schemes to create succinct
+   representations of large vectors or polynomials.
+5. Use polynomial commitment schemes like Circle PCS for compact polynomial representations.
+6. Perform fast polynomial operations using FFTs and related algorithms.
+7. Implement the FRI (Fast Reed-Solomon IOP) protocol to prove properties about
+   committed polynomials.
+8. Employ a challenger mechanism with the Fiat-Shamir heuristic for
+   non-interactive proofs.
+9. The unified STARK prover combines all components to generate the proof.
+10. The verifier uses the same components to efficiently check the proof's validity.
+
+Plonky3's modular design allows for easy customization and optimization of
+different components, making it adaptable to various use cases and performance
+requirements.
+
+If this seems very complicated, don't worry, these are the underlying workflows
+of Plonky3 based ZK systems. If you are builders who are using Plonky3, your main
+job is at Step 1 and Step 2, the rest is just configuration!
+
+## Fibonacci AIR Example
 
 This example demonstrates how to implement a Fibonacci sequence calculator using
 Algebraic Intermediate Representation (AIR) in Plonky3. AIR is a way to express
@@ -17,7 +81,7 @@ We will follow these steps:
 
 ![Plonky3 Steps](./../../images/p3_fib_steps.png)
 
-## Step One: Define your Program
+### Step One: Define your Program
 
 First you will need to understand what is the computation you want to prove. In
 our case, it is a program that calculates a Fibonacci sequence after `n` steps.
@@ -31,7 +95,7 @@ Then we have requirements of:
 3. Will iterate `n` steps based on the configuration, and its result will be
    different according to numbers of steps iterated.
 
-## Step Two: Define your AIR Constraints
+### Step Two: Define your AIR Constraints
 
 Now that we have our program logic thought out, we will convert it into AIR Constraints.
 
@@ -274,14 +338,6 @@ cargo run
 
 ![Result](././../../images/p3_fib_result.png)
 
-## Performance Considerations
-
-When implementing AIRs for more complex computations, consider:
-
-1. Optimizing the number of constraints
-2. Balancing between prover time and verifier time
-3. Choosing appropriate field sizes and extension degrees
-
 ## Troubleshooting
 
 Common issues:
@@ -319,7 +375,7 @@ Hashes:
 - Blake3
 - SHA-2
 
-### Advanced Examples
+## Advanced Examples
 
 If you want to check out the implementation of each combination, check the
 example in

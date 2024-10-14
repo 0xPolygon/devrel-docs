@@ -91,10 +91,10 @@ stack and are ready to take full advantage of some Polygon stack USPs.
 
 - Plonky3
   - [x] Overview
-  - [ ] How to choose your own configuration for Plonky3
-  - [x] Your first AIR circuits and implementation, Fibonacci Example on Plonky3
-  - [ ] Range Check Tutorial
+  - [x] Fibonacci in Plonky3 - Introduction to Plonky3
+  - [x] Range Check in Plonky3 - Constrain Degree Design & Intermediate Variables
   - [ ] Merkle Tree Tutorial
+  - [ ] Plonky3 Configuration Walkthrough - how to configure your Plonky3 Backend
   - [ ] zkVM Step by Step Guide
   - [ ] zkML Step by Step Guide
 - CDK
