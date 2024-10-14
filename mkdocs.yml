@@ -45,8 +45,8 @@ nav:
       - Understanding and Implementing Milestones: pos/tutorials/milestones.md
   - Plonky3:
     - Overview: plonky3/overview.md
-    - Examples:
-      - Fibonacci: plonky3/examples/fibonacci.md
+    - Introduction to Plonky3 & Fibonacci Example: plonky3/examples/fibonacci.md
+    - Constraint Degree, Intermediate Variables & Range Check Example: plonky3/examples/rangecheck.md
   - zkEVM:
     - Overview: zkevm/overview.md
 
