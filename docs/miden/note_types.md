@@ -1,12 +1,12 @@
-# Note Types
+# Note types
 
 To learn about the architecture of Notes in Miden, you can read the
 [technical docs](https://docs.polygon.technology/miden/miden-base/architecture/notes/).
 
-In this document, we will focus on the different types of Notes and what they're
-used for.
+This document's focus is on the different types of Notes and what they're used
+for.
 
-There are three types of Notes in Miden:
+Three types of Notes exist in Miden:
 
 - public
 - private
@@ -15,25 +15,25 @@ There are three types of Notes in Miden:
 ## Commonalities
 
 In all three cases, a note's nullifier needs to be computed so the note can be
-"used up". This nullifier is stored in the notes nullifier database.
+"used up." Miden stores the nullifier in the notes nullifier database.
 
-A note's execution happens when something we call the Transaction Kernel is
-executed, and this is done for both private and public notes. The kernel is
-executed on the Miden VM - and so, for every execution, we get a STARK proof
-that the kernel was executed correctly. This is applied differently for private
-and public notes.
+A note's execution - whether private or public - happens when something called
+the Transaction Kernel executes. The kernel executes on the Miden VM - and
+so, for every execution, the VM generates a STARK proof that the kernel was executed
+correctly. This part is applied differently for private and public notes.
 
-To compute a note's nullifier, we need to know the following:
+To compute a note's nullifier, Miden needs to know the following:
 
 - commitment to the note's assets.
 - commitment to the note's script.
 - commitment to the note's inputs.
 - the note's serial number.
 
-We do not have to know all the private details (e.g. the actual assets or the
-actual note script), but sometimes we have them (public notes).
+Miden doesn't have to know all the private details (for example, the actual
+assets or the actual note script), but sometimes the clients do have them
+(public notes).
 
-## Public Notes
+## Public notes
 
 With Public notes, all note details are recorded on-chain. For example, if
 Alistair is sending a note to Bob, Alistair will send all note details _to_ the
@@ -54,7 +54,7 @@ walkers. You trigger a function in each one by calling its respective smart
 contract function while donating. Alistair wants to donate to the "buy a puppy
 blanket", so his script calls this function while depositing the assets.
 
-## Private Notes
+## Private notes
 
 With Private notes, only the note hash is recorded on-chain. Alistair would send
 the note hash to the network and would also send all note details to Bob
@@ -75,7 +75,7 @@ that all votes are publicly verifiable as being cast, but not public. The Miden
 network executes the script, tallying the votes and ensuring transparency and
 integrity in the voting process while preventing bribery.
 
-## Encrypted Notes
+## Encrypted notes
 
 Encrypted notes are not yet supported.
 
