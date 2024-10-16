@@ -1,4 +1,4 @@
-# CDK Overview
+# CDK overview
 
 Polygon Chain Development Kit (CDK) is an innovative toolkit designed for
 blockchain developers who want to create customizable layer 2 (L2) chains. It
@@ -13,8 +13,8 @@ L2s.
     its parts, please see the
     [CDK technical docs](https://docs.polygon.technology/cdk/).
 
-This document will evolve as it dives in depth explaining every part of the CDK,
-deploying each element of the Kurtosis stack separately, and showing you how
-_the machine_ works. Reading this subsection will make you a theoretical CDK
-expert, and will be most useful for implementation providers looking to build on
-top of CDK for other projects.
+This document will evolve as it dives in depth explaining every part of the CDK.
+Over time, will deploy each element of the Kurtosis stack on its own, showing
+you how _the machine_ works. Reading this subsection will make you a theoretical
+CDK expert, and will be most useful for implementation providers looking to
+build on top of CDK for other projects.
