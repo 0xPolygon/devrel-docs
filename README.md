@@ -1,19 +1,19 @@
 # Learn platform
 
 In progress material for Polygon Docs' Learn section. Content managed by the
-[Polygon Devrel team](https://polygon.technology/community/meet-the-devrel).
+[Polygon DevRel team](https://polygon.technology/community/meet-the-devrel).
 
 ## Content
 
-External contributors should feel at home grabbing some of the incomplete topics
-and sending in PRs with drafts. If you run into a tutorial about Polygon's tech
+External contributors should feel at home grabbing some incomplete topics and
+sending in PRs with drafts. If you run into a tutorial about Polygon's tech
 stack in the wild that isn't mentioned here, please feel free to
-[open an issue](https://github.com/0xPolygon/devrel-docs/issues) or
-[contact us](https://polygon.technology/community/meet-the-devrel) to discuss
+[open an issue](https://github.com/0xPolygon/devrel-docs/issues). Alternatively,
+[reach out](https://polygon.technology/community/meet-the-devrel) to discuss
 adding it.
 
-Please note that if you PR some of your content in, it is not guaranteed to be
-published. If we do accept it, we will be modifying it to fit the style of the
+Please note that if you PR some of your content in, we can't guarantee its
+publication. If we do accept it, we will be modifying it to fit the style of the
 rest of the site. You will get full credit for your work.
 
 ### Getting your feet wet
@@ -28,7 +28,7 @@ rest of the site. You will get full credit for your work.
   - [x] Pessimistic Proof
   - [x] Unified Liquidity
   - [x] Understand Exit and Balance Trees
-  - [ ] Block building in Agglayer
+  - [ ] Block building in AggLayer
   - [ ] Network parameters and contract addresses
   - [ ] Detailed look at AggLayer L1 contracts
 - PoS
@@ -60,7 +60,7 @@ rest of the site. You will get full credit for your work.
     - [ ] Miden Assembly Crash Course 2: Counter
     - [ ] Miden Rust Crash Course
     - [ ] Deploying to Production
-    - [ ] Coinflip Step by Step
+    - [ ] Coin flip Step by Step
     - [ ] Rock Paper Scissors Step by Step
 
 ### Going for a swim
@@ -74,7 +74,7 @@ stack and are ready to take full advantage of some Polygon stack USPs.
   - [ ] Call logic across multiple notes
   - [ ] Developing multi-contract dapps
   - [ ] Using Miden for privacy-preserving applications
-  - Advanced dApp development
+  - Advanced dapp development
     - [ ] Let’s build a private-voting DAO step-by-step
     - [ ] Ensuring security and privacy: implications and tradeoffs
 - CDK
@@ -130,17 +130,17 @@ stack and are ready to take full advantage of some Polygon stack USPs.
 
 ## Community
 
-Join our community in the [R&D Discord](https://discord.gg/0xpolygonrnd), or
-schedule a meet with us at
-[Meet the Dev Rel](https://polygon.technology/community/meet-the-devrel).
+Join the community in the [R&D Discord](https://discord.gg/0xpolygonrnd), or
+[Meet the DevRel](https://polygon.technology/community/meet-the-devrel).
 
-Additionally, we have a [YouTube channel](https://www.youtube.com/@0xPolygonTV)
-and a [Polygon blog](https://polygon.technology/blog).
+To further explore Polygon's educational content, see the
+[YouTube channel](https://www.youtube.com/@0xPolygonTV) and the
+[Polygon blog](https://polygon.technology/blog).
 
 Long-form persisted discussions happen in the
 [Developer Forum](https://forum.polygon.technology/c/developers/25).
 
-### Repo Translations
+### Repo translations
 
 Please [get in touch](https://polygon.technology/community/meet-the-devrel) if
 you want to help translate this into other languages.
@@ -185,7 +185,7 @@ pip3 install virtualenv
    ./serve_docs.sh
    ```
 
-5. Once the script executes, the documentation site will be accessible at:
+5. Once the script executes, the documentation site will be available at:
    <http://127.0.0.1:8000/>.
 
 If it runs and renders well here, it will render correctly on the Knowledge
@@ -201,14 +201,41 @@ probably break on import to the Knowledge Layer.
 
 ### Linting
 
-There is a linting script at `./prettier.sh` which you can run if you have
-Prettier installed. The `.prettierrc` file is used to configure Prettier and
-should work with most modern IDEs and build processes.
+This repo offers a linting script at `./prettier.sh` which you can run if you
+have Prettier installed. The `.prettierrc` file configures Prettier and should
+work with most modern IDEs and build processes.
 
 Main rules:
 
 - use 2 spaces for indentation
 - use 80 characters for line length
 
-Other rules are loosely based on the
-[Microsoft Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/).
+## Style guide
+
+[Vale](https://vale.sh/) enforces a consistent style throughout the repository.
+
+To install Vale, run the following command:
+
+```sh
+brew install vale
+```
+
+To run Vale, use the following command:
+
+```sh
+vale [file]
+```
+
+Since Vale is very opinionated, you may want to run it file by file, not
+globally. As you write a document, run Vale on just that file to not get
+overwhelmed.
+
+e.g.
+
+```sh
+vale README.md
+```
+
+Vale will check the file for any violations of the style guide and print them to
+the console. It enforces Microsoft's style guide and a WriteGood style guide.
+You *must* fix errors, and you *may* fix warnings and suggestions.
