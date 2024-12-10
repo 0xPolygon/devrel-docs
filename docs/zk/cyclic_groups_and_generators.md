@@ -123,7 +123,7 @@ of any element also divides the order of the group.
 
     For $p = 7$, the elements that are coprime to $p$ are: 1, 2, 3, 4, 5, 6.
 
-    What if we look at, for example, $Z_14^*$?
+    What if we look at, for example, $Z_{14}^*$?
 
     We need to figure out which numbers are coprime to 14, that is, which numbers GCD
     with 14 is 1.
