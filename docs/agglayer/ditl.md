@@ -1,4 +1,4 @@
-# A Day in the Life of an AggLayer Transaction
+# A Day in the Life of an Agglayer Transaction
 
 These are Alistair and Bob.
 
@@ -12,12 +12,12 @@ Here we need to declare some assumptions before going further:
 1. There exists a cool new wallet we'll call Zigil. All our users' interactions
    will be happening through the UI of this amazing new wallet.
 2. The Polygon PoS chain and SwaderChain trust each other (defined when a chain
-   joins the AggLayer) on the pre-confirmation stage level (Pragmatism). To
+   joins the Agglayer) on the pre-confirmation stage level (Pragmatism). To
    learn more about different trust levels between chains, please read
-   [Trust Levels Between AggLayer Chains](trust.md).
-3. Tokens we want to interact with have already accepted their AggLayer version
+   [Trust Levels Between Agglayer Chains](trust.md).
+3. Tokens we want to interact with have already accepted their Agglayer version
    (their Unified-Bridge version) as canonical. Thus, when talking about
-   "sending USDT", we are referring to USDT in the AggLayer ecosystem, and not
+   "sending USDT", we are referring to USDT in the Agglayer ecosystem, and not
    wUSDT, axl.USDT, or any other wrapped or synthetic derivation.
 
 Polygon PoS is the originator of the transaction, when Alistair attempts to send
@@ -26,12 +26,12 @@ Polygon PoS is the originator of the transaction, when Alistair attempts to send
 ![Alistair attempts to send 50 USDT](../images/ditl_agg_2.png)
 
 Since the chains technically do not see each other, we need a relayer. This is
-where AggLayer comes in, which both Polygon PoS and SwaderChain are a part of.
+where Agglayer comes in, which both Polygon PoS and SwaderChain are a part of.
 
-![The AggLayer connects many chains](../images/ditl_agg_3.png)
+![The Agglayer connects many chains](../images/ditl_agg_3.png)
 
-The AggLayer can connect as many chains as will join it. There is no upper
-limit. Due to the [AggLayer's architecture](overview.md), the 50 USDT message
+The Agglayer can connect as many chains as will join it. There is no upper
+limit. Due to the [Agglayer's architecture](overview.md), the 50 USDT message
 will be traveling through several layers. Let's follow it along!
 
 Once Alistair attempts to send 50 USDT, Zigil will first check if Alistair
@@ -44,9 +44,9 @@ Zigil must make sure that the Local Balance Tree of Polygon PoS proves that the
 chain has at least 50 USDT available for withdrawal, i.e. that Polygon PoS will
 not be withdrawing more funds than have been deposited into it.
 
-All AggLayer chains will periodically automatically generate a Local Balance
+All Agglayer chains will periodically automatically generate a Local Balance
 Tree of withdrawals and a Local Exit Tree for their state. These are submitted
-to the AggLayer which authenticates them using an _authenticator_ provided by
+to the Agglayer which authenticates them using an _authenticator_ provided by
 each chain, to generate proof that the Tree of a chain is correct.
 
 More info about trees can be found in the
@@ -57,7 +57,7 @@ USDT available for _burning_ (withdrawal).
 
 ## Reading State
 
-Zigil will now read the L1 state of the AggLayer contracts, which for each token
+Zigil will now read the L1 state of the Agglayer contracts, which for each token
 contain a tuple of chain or rollup ID that the token originates from and its
 contract address on that chain.
 
@@ -84,7 +84,7 @@ if non-zero.
 | BobChain     | USDT  | 200     |
 
 The mainnet contracts are basically a "list" of all chains and their balances
-for particular tokens. This is AggLayer's primary protection against
+for particular tokens. This is Agglayer's primary protection against
 chain-hack-spillover, as explained on the
 [Pessimistic Proof](pessimistic_proof.md) page.
 
@@ -103,11 +103,11 @@ to individually interact with each chain. So what does Zigil actually do now?
 The _intent_ is for 50 USDT to arrive in Bob's wallet on SwaderChain. As such,
 Zigil will create a batch of steps to be executed:
 
-1. Burn 50 USDT on Polygon PoS in favor of the AggLayer, with a reference note
+1. Burn 50 USDT on Polygon PoS in favor of the Agglayer, with a reference note
    to the next step.
 2. Mint 50 USDT on SwaderChain in favor of Bob, with a reference note to the
    previous step.
-3. Batch these two steps into a single transaction for inclusion in the AggLayer.
+3. Batch these two steps into a single transaction for inclusion in the Agglayer.
 
 With the intent now clear, we need proofs that these steps are valid for them to
 execute.
@@ -117,14 +117,14 @@ execute.
 An authenticator is a component which authenticates the block production of a
 chain and the exit tree submitted by the chain.
 
-Each chain provides its own authenticator to the AggLayer, such that the
-AggLayer can run checks against it. If a block and the chain's Pessimistic Proof
+Each chain provides its own authenticator to the Agglayer, such that the
+Agglayer can run checks against it. If a block and the chain's Pessimistic Proof
 are authenticated with the Prover, the Aggregator will aggregate them into a
 single proof. This proof is then sent to the Settler (in this case a tool called
 Ethereman) which will send it to the L1 for final settlement.
 
 In the phase before settling but after verifying proofs, the state of the chains
-is still in the AggLayer. In [pragmatism](trust.md), this is the state that is
+is still in the Agglayer. In [pragmatism](trust.md), this is the state that is
 used. At this point, since SwaderChain has a pragmatic view of Polygon PoS, it
 will use the state of Polygon PoS as it was when the block was produced. It will
 not wait for the L1 to confirm the state transition, because the proofs alone
@@ -132,7 +132,7 @@ are enough to confirm that the state transition is valid.
 
 ## Minting and Burning
 
-The AggLayer does not execute transactions. It only verifies the chain Trees and
+The Agglayer does not execute transactions. It only verifies the chain Trees and
 aggregates the proofs of their validity. The actual execution of the transaction
 is done by the sequencer, or some application that is trusted to do so.
 
@@ -148,5 +148,5 @@ state transitions:
 6. Increase SwaderChain's withdrawable USDT balance by 50
 
 After these steps, both chains will again be generating a Local Exit Tree and
-Local Balance Tree of withdrawals to be submitted to the AggLayer as Pessimistic
+Local Balance Tree of withdrawals to be submitted to the Agglayer as Pessimistic
 Proofs. This is again done to secure the unified bridge from hack spillovers.

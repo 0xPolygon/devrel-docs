@@ -27,7 +27,7 @@ nav:
     - Cyclic Groups and Generators: zk/cyclic_groups_and_generators.md
     - Learning Resources: zk/learning_resources.md
   - Agglayer:
-    - Overview: "https://docs.agglayer.dev"
+    - Overview: agglayer/overview.md
     - Trust: agglayer/trust.md
     - Exit and Balance Trees: agglayer/lbt_vs_let.md
     - A Day in the Life of an AggLayer Transaction: agglayer/ditl.md
