@@ -7,18 +7,18 @@ and the liquidity is sometimes fragmented even on the same chain, compounding
 the problem.
 
 The aim is to provide a single source of liquidity for all chains connected to
-the AggLayer. This is done through the Unified Bridge, which allows users to
-deposit and withdraw liquidity from any chain connected to the AggLayer.
+the Agglayer. This is done through the Unified Bridge, which allows users to
+deposit and withdraw liquidity from any chain connected to the Agglayer.
 
 So how does Unified Liquidity work in practice?
 
 Let's look at an example using AggToken, a hypothetical token that is bridged
 across multiple chains.
 
-As with the [Day in the Life of an AggLayer Transaction](ditl.md), we have to
+As with the [Day in the Life of an Agglayer Transaction](ditl.md), we have to
 make some assumptions.
 
-- Assumption 1: Alistair uses Zigil, an AggLayer superwallet.
+- Assumption 1: Alistair uses Zigil, an Agglayer superwallet.
 - Assumption 2: The issuer of AggToken accepts the Unified Bridge as canonical.
 
 Alistair wants to buy 10000 AggTokens. 30000 AggTokens are in the LP on
@@ -33,9 +33,9 @@ slippage and arbitrage risk totals. Let's say that due to the LP setups in the
 DEXes on these chains, Zigil can buy 1000 AggTokens on AlistairChain, 1000 on
 Bobchain, and 8000 on Ethereum. Zigil will buy 10000 AggTokens in three
 transactions, one on each chain, but submitted at once to the a sequencer that
-works with AggLayer which will make sure the bundle is executed atomically.
+works with Agglayer which will make sure the bundle is executed atomically.
 
-In a step by step manner, the AggLayer sequencer will:
+In a step by step manner, the Agglayer sequencer will:
 
 1. Receive the bundle of transactions from Zigil.
 2. Validate the local exit proof for each chain included in the bundle, and the

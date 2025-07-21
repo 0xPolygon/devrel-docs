@@ -19,6 +19,6 @@ mainnet settling the rollups.
 The Local Balance Tree is for accounting outgoing balances.
 [Pessimistic proof](./pessimistic_proof.md) uses the LBT to match with the
 global exit root and L2 balances. The LBT is tracked and maintained by the
-AggLayer for now, because the AggLayer currently generates the pessimistic
+Agglayer for now, because the Agglayer currently generates the pessimistic
 proof. Later on, the chains will generate their own pessimistic proofs and LBTs
-and submit them to the AggLayer.
+and submit them to the Agglayer.
