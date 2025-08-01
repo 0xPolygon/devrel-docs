@@ -1,5 +1,9 @@
 # Understanding and Implementing Milestones with Bor and Heimdall in Polygon PoS
 
+!!! info "5 Second Finality in Polygon"
+
+    NOTE: With the upgrade to Heimdall v2, deterministic finality on PoS is now achieved in between 3-5 seconds thanks to the subsecond block times in Heimdall, meaning miletones are voted on and finalized much faster.
+
 ## Introduction to Bor and Heimdall in Polygon PoS
 
 ### What is Bor?
