@@ -1,5 +1,25 @@
 # Understanding and Implementing Milestones with Bor and Heimdall in Polygon PoS
 
+!!! info "5 Second Finality in Polygon"
+
+    NOTE: With the upgrade to Heimdall v2, deterministic finality on PoS is now achieved in between 3-5 seconds thanks to the subsecond block times in Heimdall, meaning miletones are voted on and finalized much faster.
+
+## How to Get Finalized Block
+
+Simply use the standard `eth_getBlockByNumber` JSON-RPC method with the `"finalized"` block parameter to retrieve information about the most recently finalized block in Polygon PoS. Finalized blocks are considered highly secure and irreversible, making them crucial for applications requiring strong transaction certainty. 
+
+To get the finalized block, you can use the following JSON-RPC call: 
+
+
+```
+{
+  "method": "eth_getBlockByNumber",
+  "params": ["finalized", true],
+  "id": 1,
+  "jsonrpc": "2.0"
+}
+```
+
 ## Introduction to Bor and Heimdall in Polygon PoS
 
 ### What is Bor?
