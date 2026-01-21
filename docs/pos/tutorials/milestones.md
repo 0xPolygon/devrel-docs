@@ -34,7 +34,7 @@ responsible for:
 ### What is Heimdall?
 
 Heimdall acts as the proof of stake layer and uses Tendermint BFT consensus. It
-decides which validators should be producing blocks in Bor in each span (based
+decides which validators should be producing blocks in Bor in each span (based 
 on their stake). It also:
 
 - Submits checkpoints to the Ethereum mainnet, securing the Polygon chain.
@@ -92,7 +92,7 @@ With the introduction of milestones:
 
 - Finality is **deterministic** even before a checkpoint is submitted to L1.
   After a certain number of blocks (minimum 12), a milestone is proposed and
-  validated by Heimdall. Once 2/3+ of the network agrees, the milestone is
+  voted by Heimdall. Once 2/3+ of the network agrees, the milestone is
   finalized, and all transactions up to that milestone are considered final,
   with no chance of reorganization.
 
@@ -126,12 +126,10 @@ async function pre_milestones_checkFinality(client: any, txHash: string): Promis
   if (!tx || !tx.blockNumber) return false
   const latestBlock: Block = await client.getBlock({ blockTag: 'finalized' })
 
-  console.log(`Latest finalized block: ${latestBlock.number}`)
+  console.log(`Latest block: \t\t${latestBlock.number}`)
   console.log(`Your transaction block: ${tx.blockNumber}`)
 
-  // Checking whether there has been 256 blocks since the transaction was included in a block
   if (latestBlock.number !== null && latestBlock.number - tx.blockNumber >= 256) {
-    console.log("Your transaction block has been confirmed after 256 blocks");
     return true
   } else {
     return false
@@ -145,19 +143,60 @@ Here's the implementation of Checking Transaction Finality AFTER Milestones Impl
 async function milestones_checkFinality(client: any, txHash: string): Promise<boolean> {
   const tx = await client.getTransaction({ hash: `0x${txHash}` })
   if (!tx || !tx.blockNumber) return false
-  const latestBlock: Block = await client.getBlock({ blockTag: 'finalized' })
+  const latestBlock: Block = await client.getBlock({ blockTag: 'latest' })
+  const finalizedBlock: Block = await client.getBlock({ blockTag: 'finalized' })
 
-  console.log(`Latest finalized block: ${latestBlock.number}`)
+  console.log(`Latest block: \t\t${latestBlock.number}`)
+  console.log(`Latest Finalized block: ${finalizedBlock.number}`)
   console.log(`Your transaction block: ${tx.blockNumber}`)
 
-  // Checking whether the finalized block number via milestones has reached the transaction block number.
-  if (latestBlock.number !== null && latestBlock.number > tx.blockNumber) {
-    console.log("Your transaction block has been confirmed after 16 blocks");
+  if (finalizedBlock.number !== null && finalizedBlock.number > tx.blockNumber) {
     return true
   } else {
     return false
   }
 }
+```
+
+Lastly, adding this command line interface to run the code:
+```ts
+async function main() {
+  program
+    .requiredOption('-t, --txHash <string>', 'Transaction hash')
+    .requiredOption('-f, --function <string>', 'Function to call', (value) => {
+      if (!['pre_milestones', 'milestones'].includes(value)) {
+        throw new Error('Invalid function. Allowed values are: pre_milestones, milestones');
+      }
+      return value;
+    })
+    .requiredOption('-n, --network <string>', 'Network to use', (value) => {
+      if (!['polygon', 'amoy'].includes(value)) {
+        throw new Error('Invalid network. Allowed values are: polygon, amoy');
+      }
+      return value;
+    })
+    .parse(process.argv);
+
+  const { function: functionName, txHash, network } = program.opts();
+
+  const chain = network === 'polygon' ? polygon : polygonAmoy;
+  const client = createPublicClient({
+    chain,
+    transport: http(),
+  });
+
+  if (functionName === 'pre_milestones') {
+    const result = await pre_milestones_checkFinality(client, txHash)
+    console.log(`Pre-milestones finality check result: ${result}`)
+  } else if (functionName === 'milestones') {
+    const result = await milestones_checkFinality(client, txHash)
+    console.log(`Milestones finality check result: ${result}`)
+  }
+}
+
+main().catch((error) => {
+  console.error('Error:', error)
+})
 ```
 
 > Please note that this is just a demo purpose to show the previous
@@ -192,21 +231,28 @@ async function milestones_checkFinality(client: any, txHash: string): Promise<bo
 
 ### Results
 
-The results should show whether the transaction has been finalized based on the
-selected milestone mechanism and network. Usually Milestones will take 1-2
-minutes to finalize the transaction. Result as follows:
+The results should show whether the transaction has been finalized based on the selected milestone mechanism and network.
+Usually Milestones will taking 1-2 minutes to finalize the transaction. Result as follows:
 
+#### Milestones Example
+
+When the transaction is still pending, the `milestones_checkFinality` function will show the following:
 ![milestones_result](../../images/milestones_04.png)
 
-Here's a screenshot of the `pre_milestones_checkFinality` function, where it
-shows that the new blocks are not yet 256:
+When the transaction is finalized, the `milestones_checkFinality` function will show the following:
+![milestones_result](../../images/milestones_05.png)
 
-![pre_milestones_result](../../images/milestones_05.png)
+As you can see, there's always few blocks difference between latest block and finalized block, which is the buffer and the voting period for the milestone. Once the finalized block is higher than the transaction block, the transaction is considered finalized.
 
-Here's a screenshot of the `pre_milestones_checkFinality` function, where it
-shows that the new blocks are 256:
+#### Pre-Milestones Example
 
-![pre_milestones_finalized](../../images/milestones_06.png)
+Here's a screenshot of the `pre_milestones_checkFinality` function, where it shows that the new blocks are not yet 256:
+![pre_milestones_result](../../images/milestones_06.png)
+
+Here's a screenshot of the `pre_milestones_checkFinality` function, where it shows that the new blocks are 256:
+![pre_milestones_finalized](../../images/milestones_07.png)
+
+As you can see, there's no finalized block in the pre-milestones implementation, so the transaction is considered finalized once the new blocks are 256, aka the latest block is 256 blocks higher than the transaction block.
 
 ### Experimenting Further
 
